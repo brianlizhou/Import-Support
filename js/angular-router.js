@@ -38,6 +38,9 @@
 		$scope.message = 'Look! I am an about page.';
 	});
 
-	importSupport.controller('contactController', function($scope) {
-		$scope.message = 'Contact us! JK. This is just a demo.';
-	});
+	importSupport.controller('donateController', function getTotalNeedsForDisaster($scope, $http)
+{
+$http({method: 'GET', url: 'js/test.json'}).success(function(data)
+{
+$scope.totalNeeds = data; // response data 
+});
