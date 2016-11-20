@@ -146,7 +146,7 @@
           if(countyList){
           	$scope.arrayToString =countyList.join(", ");
           }
-          console.log(countyList);
+          console.log(arrayToString);
 
         });
         
