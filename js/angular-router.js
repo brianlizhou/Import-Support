@@ -141,6 +141,7 @@
           else{
           	countyList.push($scope.content);
           }
+          console.log(countyList);
 
         });
         
