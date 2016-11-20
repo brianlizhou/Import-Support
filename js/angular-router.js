@@ -41,7 +41,7 @@
       });
 	});
 	
-	
+	var totalNeeds;
 	importSupport.controller('mainController', function($scope, $http){
 		$scope.submitForm = function() {
 			$http({
@@ -51,11 +51,18 @@
 			}).success(function(data)
 			{
 				totalNeeds = data; // response data 
+				console.log(totalNeeds);
 			});
 		}
 	});
 
-	importSupport.controller('donateController', function($scope){});
+	importSupport.controller('donateController', function($scope){
+		$scope.localNeeds = totalNeeds;
+	});
+
+
+	var arrayToString;
+    var countyList = [];
 
 	importSupport.controller('orgController', function($scope, $http){
 	  $scope.submitForm = function() {
@@ -65,13 +72,24 @@
           data    : $scope.org, //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
-        // if($scope.org.food){
-        // 	for()
-        // }
+        if($scope.org.food){
+        	var len = countyList.length;
+        	var scopeServices = {};
+        	for(var i =0;i<len;i++){
+        		scopeServices.organizationName = $scope.org.organizationName;
+        		scopeServices.county = countyList[i];
+        		scopeServices.resourceType = "food";
+        		$http({
+          			method  : 'POST',
+          			url     : 'https://quiet-crag-82048.herokuapp.com/services',
+          			data    : scopeServices, //forms user object
+          			headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+        		})
+        	}
+        }
       };
 
             var map;
-            countyList = ["ADFs"];
 
       require([
         "esri/map", "esri/layers/FeatureLayer",
@@ -144,23 +162,22 @@
         featureLayer.on("click", function(evt){       
           var t = "${County_Name}"
           map.graphics.clear();
-          $scope.content = esriLang.substitute(evt.graphic.attributes,t);
+          var content = new String(esriLang.substitute(evt.graphic.attributes,t));
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
 
-		  var index = countyList.indexOf($scope.content);
+		  var index = countyList.indexOf(content);
           if (index > -1) {
     		countyList.splice(index, 1);
 		  }
           else{
-          	countyList.push($scope.content);
+          	countyList.push(content);
           }
           if(countyList){
           	arrayToString =countyList.join(", ");
+          	$scope.arrayToString = arrayToString;
           }
-           $scope.$apply();
           console.log(arrayToString);
-          hello = 1;
         });
         
 
