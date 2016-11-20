@@ -31,7 +31,7 @@
                 <div class="container">
                     <p>Overall Water</p>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedWater/localNeeds.neededWater*100}}%">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedWater/localNeeds.neededWater*100}}%">
                             {{localNeeds.receivedWater}}/{{localNeeds.neededWater}}
                         </div>
                     </div>
@@ -49,18 +49,8 @@
             </div>
 
 
-<<<<<<< HEAD
  <!--   </div>
     <div id="map" ng-switch on="$scope.localDisaster">
-=======
-
-   </div>
-
-<!--    <div id= "map" ng-include = " 'donateFlorida.html' "></div> -->
-
-    <div id="map" ng-switch="$scope.localDisaster">
-
->>>>>>> 653c478968145ce6c5a488be8d35320d7c2317f1
     	<div ng-switch-when=" 'Hurricane Matthew' "><div>
     		<ng-include src ="'donateFlorida.html'"></ng-include>
     	</div>
@@ -111,7 +101,6 @@
         });
         
         
-        
         var featureLayer = new FeatureLayer("https://services7.arcgis.com/vGwGOHEhgdNFiYyz/arcgis/rest/services/US_County_Resources_Needed/FeatureServer/0", {
           mode: FeatureLayer.MODE_SNAPSHOT,
           outFields: ["*"],
@@ -159,7 +148,6 @@
        
 
         var highlightGraphic;
-
         
         featureLayer.on("click", function(evt){       
           var t = "${County_Name}"
@@ -167,11 +155,9 @@
           var content = esriLang.substitute(evt.graphic.attributes,t);
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
-
-          updateData(content);
+          //updateData(content);
         });
         
-
 
         featureLayer.setRenderer(renderer);
         map.addLayer(featureLayer);
