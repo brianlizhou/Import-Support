@@ -26,13 +26,13 @@
 			.when('/volunteer', {
 				templateUrl : 'volunteerform.html',
 				controller  : 'volunteerController'
-			});
+			})
 
       // route for the donate to supplies page
       .when('/donateToSupplies', {
         templateUrl : 'donateToSupplies.html',
         controller  : 'donateToSuppliesController'
-      });
+      })
 
       // route for the donate supplies page
       .when('/donateSupplies', {
