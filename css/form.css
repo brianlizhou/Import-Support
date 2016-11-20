@@ -67,6 +67,10 @@ form textarea {
   color:white;
 }
 
+.dres {
+  text-align: left;
+}
+
 .half {
   float: left;
   width: 48%;

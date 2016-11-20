@@ -12,29 +12,46 @@
     </style>
     <script src="https://js.arcgis.com/3.18/"></script>
     <script>
-      var map;
+      var map, dialog;
       require([
         "esri/map", "esri/layers/FeatureLayer",
         "esri/InfoTemplate", "esri/symbols/SimpleFillSymbol", "esri/symbols/SimpleLineSymbol",
         "esri/renderers/ClassBreaksRenderer", "esri/graphic", "esri/lang",
-        "esri/Color", "dojo/dom-style", "dojo/domReady!"
+        "esri/Color", "dojo/dom-style", "dojo/domReady!",
+        "dojo/number", "dojo/dom-style",
+        "dijit/TooltipDialog", "dijit/popup",
       ], function(
         Map, FeatureLayer,
         InfoTemplate, SimpleFillSymbol, SimpleLineSymbol,
         ClassBreaksRenderer, Graphic, esriLang,
-        Color, domStyle
+        Color, domStyle,
+        number,
+        TooltipDialog, dijitPopup
       ) {
         map = new Map("map", {
-          basemap: "streets",
+          basemap: "gray",
           center: [-83.54, 27.646],
           zoom: 6,
           slider: false
         });
+        
+        
+         map.on("load", function(){
+          map.graphics.enableMouseEvents();
+          map.graphics.on("mouse-out", closeDialog);
+
+        });
+        
+        var featureLayer = new FeatureLayer("https://services7.arcgis.com/vGwGOHEhgdNFiYyz/arcgis/rest/services/US_County_Resources_Needed/FeatureServer/0", {
+          mode: FeatureLayer.MODE_SNAPSHOT,
+          outFields: ["*"],
+          //infoTemplate: infoTemplate
+        });
 
         var symbol = new SimpleFillSymbol();
         symbol.setColor(new Color([150, 150, 150, 0.5]));
-    
-        
+      
+      
         var highlightSymbol = new SimpleFillSymbol(
           SimpleFillSymbol.STYLE_SOLID,
           new SimpleLineSymbol(
@@ -60,17 +77,17 @@
         //
         // alternatively, ArcGIS Server's generate renderer task could be used
         var renderer = new ClassBreaksRenderer(symbol, "Resources_Needs_Statisfied");
-        renderer.addBreak(1, 25, new SimpleFillSymbol().setColor(new Color([56, 168, 0, 0.5])));
-        renderer.addBreak(25, 75, new SimpleFillSymbol().setColor(new Color([139, 209, 0, 0.5])));
-        renderer.addBreak(75, Infinity, new SimpleFillSymbol().setColor(new Color([255, 255, 0, 0.5])));
+        
+        renderer.addBreak(0, 20, new SimpleFillSymbol().setColor(new Color([255, 0, 0, 0.5])));
+        renderer.addBreak(20, 40, new SimpleFillSymbol().setColor(new Color([255, 128, 0, 0.5])));
+        renderer.addBreak(40, 60, new SimpleFillSymbol().setColor(new Color([255, 255, 0, 0.5])));
+        renderer.addBreak(60, 89, new SimpleFillSymbol().setColor(new Color([139, 209, 0, 0.5])));
+        renderer.addBreak(89, Infinity, new SimpleFillSymbol().setColor(new Color([56,168, 0, 0.5])));
+        
 
         //var infoTemplate = new InfoTemplate("${County_Name}", "${*}");
        
-        var featureLayer = new FeatureLayer("https://services7.arcgis.com/vGwGOHEhgdNFiYyz/arcgis/rest/services/US_County_Resources_Needed/FeatureServer/0", {
-          mode: FeatureLayer.MODE_SNAPSHOT,
-          outFields: ["*"],
-          //infoTemplate: infoTemplate
-        });
+
         var highlightGraphic;
         var justClicked = false;
         
@@ -80,6 +97,7 @@
           }
           justClicked = !justClicked
         });
+
         
         featureLayer.on("click", function(evt){       
           var t = "${County_Name}"
@@ -90,12 +108,38 @@
           //updateData(content);
         });
         
+         featureLayer.on("mouse-over", function(evt){
+          var t = "<b>${NAME}</b><hr><b>County Name: </b>${County_Name}<br>"
+            + "<b>Resources Needs Satisfied: </b>${Resources_Needs_Statisfied}<br>"
 
-        
+          var content = esriLang.substitute(evt.graphic.attributes,t);
+          var highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
+          map.graphics.add(highlightGraphic);
+          dialog.setContent(content);
+          domStyle.set(dialog.domNode, "opacity", 0.85);
+          dijitPopup.open({
+            popup: dialog,
+            x: evt.pageX,
+            y: evt.pageY
+          });
+        });
+
+        function closeDialog() {
+          map.graphics.clear();
+          dijitPopup.close(dialog);
+        }
 
 
         featureLayer.setRenderer(renderer);
         map.addLayer(featureLayer);
+        
+             map.infoWindow.resize(245,125);
+
+        dialog = new TooltipDialog({
+          id: "tooltipDialog",
+          style: "position: absolute; width: 250px; font: normal normal normal 10pt Helvetica;z-index:100"
+        });
+        dialog.startup();
 
       });
     </script>
