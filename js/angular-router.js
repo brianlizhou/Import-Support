@@ -40,7 +40,16 @@
 		});
 	});
 
-	importSupport.controller('orgController', function($scope){});
+	importSupport.controller('orgController', function($scope, $http){
+		$scope.submitForm = function() {
+        $http({
+          method  : 'POST',
+          url     : 'https://quiet-crag-82048.herokuapp.com/organizations',
+          data    : $scope.user, //forms user object
+          headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+      };
+	});
 
 	// create the controller and inject Angular's $scope
 	importSupport.controller('volunteerController', function($scope, $http) {
