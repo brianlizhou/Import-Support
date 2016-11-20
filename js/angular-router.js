@@ -42,6 +42,7 @@
 	});
 	
 	var totalNeeds;
+  var disasterType;
 	importSupport.controller('mainController', function($scope, $http){
 		$scope.submitForm = function() {
 			$http({
@@ -50,23 +51,16 @@
 				params : {disaster: $scope.crisis.disaster}
 			}).success(function(data)
 			{
+        disasterType = $scope.crisis.disaster;
 				totalNeeds = data; // response data 
 				console.log(totalNeeds);
 			});
 		}
 	});
 
-	document.getElementById('totalView').innerHTML += 'importSupport.controller('donateController', function($scope){
+	importSupport.controller('donateController', function($scope){
 		$scope.localNeeds = totalNeeds;
-		<div class="container">
-                    <p>Overall Food</p>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedFood/localNeeds.neededFood*100}}%">
-                            {{localNeeds.receivedFood/localNeeds.neededFood*100}}%
-                        </div>
-                    </div>
-                </div>
-	});';
+	});
 
 
 	var arrayToString;
