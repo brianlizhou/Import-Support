@@ -189,9 +189,11 @@
         //
         // alternatively, ArcGIS Server's generate renderer task could be used
         var renderer = new ClassBreaksRenderer(symbol, "Resources_Needs_Statisfied");
-        renderer.addBreak(1, 25, new SimpleFillSymbol().setColor(new Color([56, 168, 0, 0.5])));
-        renderer.addBreak(25, 75, new SimpleFillSymbol().setColor(new Color([139, 209, 0, 0.5])));
-        renderer.addBreak(75, Infinity, new SimpleFillSymbol().setColor(new Color([255, 255, 0, 0.5])));
+        renderer.addBreak(0, 20, new SimpleFillSymbol().setColor(new Color([255, 0, 0, 0.5])));
+        renderer.addBreak(20, 40, new SimpleFillSymbol().setColor(new Color([255, 128, 0, 0.5])));
+        renderer.addBreak(40, 60, new SimpleFillSymbol().setColor(new Color([255, 255, 0, 0.5])));
+        renderer.addBreak(60, 89, new SimpleFillSymbol().setColor(new Color([139, 209, 0, 0.5])));
+        renderer.addBreak(89, Infinity, new SimpleFillSymbol().setColor(new Color([56,168, 0, 0.5])));
 
         //var infoTemplate = new InfoTemplate("${County_Name}", "${*}");
        
