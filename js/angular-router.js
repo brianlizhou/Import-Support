@@ -88,6 +88,7 @@
        			$scope.orgList = data;
 			});
 		}
+
 	});
 
 
