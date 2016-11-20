@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <base target="_parent" />
+</head>
+<body>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <style type="text/css">
+    .datamaps-hoverover {
+        display: none;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    
+    hr {
+        margin-left: 20px;
+    }
+    
+    body {
+        width: 730px;
+        font-family: 'Open Sans', sans-serif;
+        z-index: -10;
+    }
+    
+    form {
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    
+    h1 {
+        margin-bottom: 0px;
+    }
+    
+    #map_election {
+        margin-top: -20px;
+        width: 730px;
+        height: 600px;
+    }
+    
+    .hoverinfo {
+        font-family: 'Open Sans', sans-serif;
+        text-align: center;
+        padding: 7px;
+        border-radius: 1px;
+        background-color: #FFF;
+        box-shadow: 1px 1px 5px #CCC;
+        font-size: 12px;
+        border: 1px solid #CCC;
+    }
+    
+    #explanation {
+        margin-left: 20px;
+        font-size: 14px;
+        float: right;
+        margin-bottom: -20px;
+    }
+    
+    .state {
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    .votingPowerIndex,
+    .tippingPower {
+        font-weight: bold;
+        font-size: 17px;
+    }
+    
+    .hoverinfo hr {
+        border: 1px dotted #CCC;
+    }
+    
+    #stateToVoteIn {
+        z-index: 5;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    
+
+    </style>
+
+    <div id="stateToVoteIn"></div>
+    <hr>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="topojson.min.js"></script>
+    <script src="datamaps.usa.min.js"></script>
+    <div id="map_election" style="position: relative;"></div>
+    <script src="script.js"></script>
+</body>
