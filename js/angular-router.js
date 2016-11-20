@@ -29,7 +29,7 @@
 			});
 	});
 	
-	
+	var totalNeeds;
 	importSupport.controller('mainController', function($scope, $http){
 		$scope.submitForm = function() {
 			$http({
@@ -38,14 +38,15 @@
 				params : {disaster: $scope.crisis.disaster}
 			}).success(function(data)
 			{
-				var totalNeeds = data; // response data 
+				totalNeeds = data; // response data 
 				console.log(totalNeeds);
-				$scope.$apply();
 			});
 		}
 	});
 
-	importSupport.controller('donateController', function($scope){});
+	importSupport.controller('donateController', function($scope){
+		$scope.localNeeds = totalNeeds;
+	});
 
 	importSupport.controller('orgController', function($scope, $http){
 	  $scope.submitForm = function() {
