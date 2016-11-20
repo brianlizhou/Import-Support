@@ -1,17 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Class Breaks Renderer</title>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">
+    <style>
+      html, body, #map{
+        height: 50%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script src="https://js.arcgis.com/3.18/"></script>
+    <script>
+      var map;
+      require([
+        "esri/map", "esri/layers/FeatureLayer",
+        "esri/InfoTemplate", "esri/symbols/SimpleFillSymbol", 
+        "esri/renderers/ClassBreaksRenderer","esri/lang",
+        "esri/Color", "dojo/dom-style", "dojo/domReady!"
+      ], function(
+        Map, FeatureLayer,
+        InfoTemplate, SimpleFillSymbol, 
+        ClassBreaksRenderer, esriLang,
+        Color, domStyle
+      ) {
+        map = new Map("map", {
+          basemap: "streets",
+          center: [-98.215, 38.382],
+          zoom: 7,
+          slider: false
+        });
+
+        var symbol = new SimpleFillSymbol();
+        symbol.setColor(new Color([150, 150, 150, 0.5]));
+
+        // Add five breaks to the renderer.
+        // If you have ESRI's ArcMap available, this can be a good way to determine break values.
+        // You can also copy the RGB values from the color schemes ArcMap applies, or use colors
+        // from a site like www.colorbrewer.org
+        //
+        // alternatively, ArcGIS Server's generate renderer task could be used
+        var renderer = new ClassBreaksRenderer(symbol, "Resources_Needs_Statisfied");
+        renderer.addBreak(1, 25, new SimpleFillSymbol().setColor(new Color([56, 168, 0, 0.5])));
+        renderer.addBreak(25, 75, new SimpleFillSymbol().setColor(new Color([139, 209, 0, 0.5])));
+        renderer.addBreak(75, Infinity, new SimpleFillSymbol().setColor(new Color([255, 255, 0, 0.5])));
+
+        var infoTemplate = new InfoTemplate("${County_Name}", "${*}");
+       
+        var featureLayer = new FeatureLayer("https://services7.arcgis.com/vGwGOHEhgdNFiYyz/arcgis/rest/services/US_County_Resources_Needed/FeatureServer/0", {
+          mode: FeatureLayer.MODE_SNAPSHOT,
+          outFields: ["*"],
+          infoTemplate: infoTemplate
+        });
+        
+        featureLayer.on("mouse-over", function(evt){       
+          var t = "${County_Name}"
+          var content = esriLang.substitute(evt.graphic.attributes,t);
+          updateData(content);
+        });
 
 
-<div>
-    <div class="text-center">
-    <h1>Placeholder disaster</h1>
-    <div class="container">
-        <h2>Animated Progress Bar</h2>
-        <p>The .active class animates the progress bar:</p>
-        <div class="progress">
-            <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{totalNeeds.receivedFood/totalNeeds.neededFood*100}}%">
-                {{totalNeeds.receivedFood/totalNeeds.neededFood*100}}%
+        featureLayer.setRenderer(renderer);
+        map.addLayer(featureLayer);
+
+      });
+    </script>
+  </head>
+  
+  <body>
+       <div>
+            <div class="text-center">
+                <h1>Placeholder disaster</h1>
+                <div class="container">
+                    <h2>Animated Progress Bar</h2>
+                    <p>The .active class animates the progress bar:</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{totalNeeds.receivedFood/totalNeeds.neededFood*100}}%">
+                            {{totalNeeds.receivedFood/totalNeeds.neededFood*100}}%
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
+    <div id="map"></div>
+  </body>
 
-</div>
+</html>
