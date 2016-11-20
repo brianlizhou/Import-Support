@@ -53,13 +53,24 @@
           data    : $scope.org, //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
-        // if($scope.org.food){
-        // 	for()
-        // }
+        if($scope.org.food){
+        	var len = countyList.length;
+        	for(var i =0;i<len;i++){
+        		$scope.scopeServices.organizationName = $scope.org.organizationName;
+        		$scope.scopeServices.county = countyList[i];
+        		$scope.scopeServices.resourceType = "food";
+        		$http({
+          			method  : 'POST',
+          			url     : 'https://quiet-crag-82048.herokuapp.com/services',
+          			data    : $scope.scopeServices, //forms user object
+          			headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+        		})
+        	}
+        }
       };
 
             var map;
-            countyList = ["ADFs"];
+            countyList = [];
 
       require([
         "esri/map", "esri/layers/FeatureLayer",
