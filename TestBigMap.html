@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">
     <style>
       html, body, #map{
-        height: 50%;
+        height: 80%;
+        width: 80%;
         margin: 0;
         padding: 0;
       }
@@ -72,20 +73,20 @@
   </head>
   
   <body>
-	   <div>
-		    <div class="text-center">
-		        <h1>Placeholder disaster</h1>
-		        <div class="container">
-		            <h2>Animated Progress Bar</h2>
-		            <p>The .active class animates the progress bar:</p>
-		            <div class="progress">
-		                <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{totalNeeds.receivedFood/totalNeeds.neededFood*100}}%">
-		                    {{totalNeeds.receivedFood/totalNeeds.neededFood*100}}%
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
+       <div>
+            <div class="text-center">
+                <h1>Placeholder disaster</h1>
+                <div class="container">
+                    <h2>Animated Progress Bar</h2>
+                    <p>The .active class animates the progress bar:</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{totalNeeds.receivedFood/totalNeeds.neededFood*100}}%">
+                            {{totalNeeds.receivedFood/totalNeeds.neededFood*100}}%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <div id="map"></div>
   </body>
 
