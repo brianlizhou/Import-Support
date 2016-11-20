@@ -161,8 +161,8 @@
           }
           if(countyList){
           	arrayToString =countyList.join(", ");
+          	$scope.arrayToString = arrayToString;
           }
-           $scope.$apply();
           console.log(arrayToString);
         });
         
