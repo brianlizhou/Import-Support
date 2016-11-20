@@ -30,10 +30,8 @@
 	});
 	
 	
-	importSupport.controller('mainController', function($scope){});
-
-	importSupport.controller('donateController', function($scope, $http)
-	{
+	importSupport.controller('mainController', function($scope, $http){
+		$scope.submitForm = function() {
 		$http({
 			method: 'GET', 
 			url: 'js/test.json',
@@ -42,6 +40,9 @@
 		{
 			$scope.totalNeeds = data; // response data 
 		});
+	});
+
+	importSupport.controller('donateController', function($scope){})
 	});
 
 	importSupport.controller('orgController', function($scope, $http){
