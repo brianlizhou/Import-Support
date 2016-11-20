@@ -50,6 +50,7 @@
           method  : 'POST',
           url     : 'js/posts.json',
           data    : $scope.user, //forms user object
+          headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
       };
     });
