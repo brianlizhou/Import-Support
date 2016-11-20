@@ -18,6 +18,10 @@ h1 {
   text-shadow: 1px 1px 0 white;
 }
 
+p{
+  color: #ffffff;
+}
+
 form {
   max-width: 600px;
   text-align: center;
