@@ -30,7 +30,7 @@
 	});
 	
 	
-	importSupport.controller('mainController');
+	importSupport.controller('mainController', function($scope){});
 
 	importSupport.controller('donateController', function($scope, $http)
 	{
@@ -40,7 +40,7 @@
 		});
 	});
 
-	importSupport.controller('orgController');
+	importSupport.controller('orgController', function($scope){}));
 
 	// create the controller and inject Angular's $scope
 	importSupport.controller('volunteerController', function($scope, $http) {
