@@ -239,7 +239,7 @@
       {
         originalValue = data.providedResource; // response data 
         console.log(data);
-        var number = parseInt($scope.volunteer.quantity) + parseInt(originalValue);  
+        var number = parseInt($scope.volunteer.quantity) + originalValue;  
         $scope.volunteer.quantity = parseInt(number);
       });
 
