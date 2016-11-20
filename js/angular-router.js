@@ -149,16 +149,16 @@
         featureLayer.on("click", function(evt){       
           var t = "${County_Name}"
           map.graphics.clear();
-          $scope.content = esriLang.substitute(evt.graphic.attributes,t);
+          var content = esriLang.substitute(evt.graphic.attributes,t);
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
 
-		  var index = countyList.indexOf($scope.content);
+		  var index = countyList.indexOf(content);
           if (index > -1) {
     		countyList.splice(index, 1);
 		  }
           else{
-          	countyList.push($scope.content);
+          	countyList.push(content);
           }
           if(countyList){
           	arrayToString =countyList.join(", ");
