@@ -162,6 +162,8 @@
 
         var xmlhttp = $.get("https://quiet-crag-82048.herokuapp.com/county_contributions", {county:content});
         console.log(xmlhttp);
+        var result = JSON.parse(xmlhttp.responseText);
+        document.getElementById("aidHealth").style.width= (result[0].distributedWater/result[0].receivedWater)*100 + "%";
         });
         
 
@@ -184,7 +186,7 @@
         <p>{{org.orgName}}</p><br>
         <p>{{org.orgAddress}}</p>
    		<br>
-            <div class="progress">
+            <div class="progress" id="aidHealth">
                         <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{org.receivedWater/org.distributedWater*100}}%">
                             {{org.receivedWater}}/{{localNeeds.distributedWater}} Water sent/received
                         </div>
