@@ -158,6 +158,7 @@
 
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
+		      $scope.updateData();
 
         });
         
@@ -165,14 +166,6 @@
         featureLayer.setRenderer(renderer);
         map.addLayer(featureLayer);
         
-             map.infoWindow.resize(245,125);
-
-        dialog = new TooltipDialog({
-          id: "tooltipDialog",
-          style: "position: absolute; width: 250px; font: normal normal normal 10pt Helvetica;z-index:100"
-        });
-        dialog.startup();
-
       });
     </script>
   </head>
@@ -206,5 +199,9 @@
                         </div>
              </div>
      </div>
+
+  <img src="img/AngelRelief.jpg" width="75px" height="75px" style="border-radius:10px;margin-left:200px;"> <h3 style="display:inline-block"> Aid and Angels </h3>
+
+  <img src="img/HelpingHand.jpg" width="75px" height="75px" style="border-radius:10px;margin-left:200px;"> <h3 style="display:inline-block"> Helping Hands </h3>
 
   </body>
