@@ -68,7 +68,7 @@
         		$http({
           			method  : 'POST',
           			url     : 'https://quiet-crag-82048.herokuapp.com/services',
-          			data    : $scope.scopeServices, //forms user object
+          			data    : scopeServices, //forms user object
           			headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         		})
         	}
