@@ -38,8 +38,7 @@
 				//params : {disaster: $scope.crisis.disaster}
 			}).success(function(data)
 			{
-				$scope.totalNeeds = data; // response data 
-				console.log(data);
+				totalNeeds = data; // response data 
 			});
 		}
 	});
