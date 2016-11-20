@@ -73,7 +73,7 @@
 
 	importSupport.controller('donateController', function($scope,. $timeout){
 		$scope.localNeeds = totalNeeds;
-    	$timeout(function() {
+    	$setTimeout(function() {
     		$scope.localDisaster = disasterType;
     	}, 1000);
     	console.log($scope.localDisaster);
