@@ -50,7 +50,7 @@
         $http({
           method  : 'POST',
           url     : 'https://quiet-crag-82048.herokuapp.com/organizations',
-          data    : {organizationName: $scope.org.organizationName, organizationAddress, $scope.org.organizationAddress}, //forms user object
+          data    : {organizationName: $scope.org.organizationName, organizationAddress: $scope.org.organizationAddress}, //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
       };
