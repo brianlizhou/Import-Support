@@ -83,7 +83,7 @@
     		console.log($scope.localDisaster); 
 
 		//function updateData($scope){
-			$rootScope.updateData = function($scope){
+			$scope.updateData = function(){
 			$http({
 				method: 'GET', 
 				url: 'https://quiet-crag-82048.herokuapp.com/county_needs',
