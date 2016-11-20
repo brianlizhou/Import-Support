@@ -40,7 +40,7 @@
 		});
 	});
 
-	importSupport.controller('orgController', function($scope){}));
+	importSupport.controller('orgController', function($scope){});
 
 	// create the controller and inject Angular's $scope
 	importSupport.controller('volunteerController', function($scope, $http) {
