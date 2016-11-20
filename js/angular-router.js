@@ -34,7 +34,11 @@
 
 	importSupport.controller('donateController', function($scope, $http)
 	{
-		$http({method: 'GET', url: 'js/test.json'}).success(function(data)
+		$http({
+			method: 'GET', 
+			url: 'js/test.json',
+			data : $scope.crisis
+		}).success(function(data)
 		{
 			$scope.totalNeeds = data; // response data 
 		});

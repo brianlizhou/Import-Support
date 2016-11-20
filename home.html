@@ -5,4 +5,16 @@
             <a href="#donate" class="btn btn-dark btn-lg">Donate</a>
             <a href="#organization" class="btn btn-dark btn-lg">Organization</a>
             <a href="#volunteer" class="btn btn-dark btn-lg">Local Coordinator</a>
+
+            <form class="cf" ng-submit="submitForm()">
+  <div class="full left cf">
+    <input list = "Crisis" id="list-org" placeholder="Crisis" ng-model="crisis.disaster">
+    <datalist id="Crisis">
+      <option value="Hurricane">
+              </datalist>
+            </div>
+
+          </div>
+          <input type="submit" value="Submit" id="input-submit">
+        </form>
         </div>
