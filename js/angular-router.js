@@ -53,9 +53,9 @@
           data    : $scope.org, //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
-        if($scope.org.food){
-        	for()
-        }
+        // if($scope.org.food){
+        // 	for()
+        // }
       };
 
             var map;
