@@ -79,14 +79,14 @@
       $scope.localDisaster = disasterType;
     }
 
-      setTimeout(function(){
+      $setTimeout(function(){
             initData();
         }, 1000);
 
     		// $scope.localDisaster = "Hurricane Matthew";
     		console.log($scope.localDisaster);
 
-		$scope.updateData = function() {
+		updateData = function() {
 
 
 
