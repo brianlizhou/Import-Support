@@ -2,7 +2,11 @@
   <form class="cf" ng-submit="submitForm()">
     <div class="half left cf">
       <input type="text" id="input-name" placeholder="Organization Name" ng-model="org.organizationName">
+      Food <input type="checkbox" name="resource" value="Food" font color="white"/> <br/>
+      Water <input type="checkbox" name="resource" value="Water" font color="white"/> <br/>
+      Clothing <input type="checkbox" name="resource" value="Clothing" font color="white"/> <br/>
     </div>
+      
     <div class="half right cf">
       <textarea name="address" type="text" id="input-address" placeholder="Address" ng-model="org.organizationAddress"></textarea>
     </div>  
