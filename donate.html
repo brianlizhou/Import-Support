@@ -111,6 +111,7 @@
         });
         
         
+        
         var featureLayer = new FeatureLayer("https://services7.arcgis.com/vGwGOHEhgdNFiYyz/arcgis/rest/services/US_County_Resources_Needed/FeatureServer/0", {
           mode: FeatureLayer.MODE_SNAPSHOT,
           outFields: ["*"],
@@ -167,12 +168,8 @@
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
 
-          var content = esriLang.substitute(evt.graphic.attributes,t);
           updateData(content);
-          var highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
-          map.graphics.add(highlightGraphic);
-          dialog.setContent(content);
-          domStyle.set(dialog.domNode, "opacity", 0.85);
+        });
         
 
 
