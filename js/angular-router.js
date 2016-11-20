@@ -135,9 +135,9 @@
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
 
-		  var index = array.indexOf($scope.content);
+		  var index = countyList.indexOf($scope.content);
           if (index > -1) {
-    		array.splice(index, 1);
+    		countyList.splice(index, 1);
 		  }
           else{
           	countyList.push($scope.content);
