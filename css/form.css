@@ -58,6 +58,10 @@ form textarea {
   height: 126px;
 }
 
+.resourceCheck {
+  color: white;
+}
+
 .half {
   float: left;
   width: 48%;
