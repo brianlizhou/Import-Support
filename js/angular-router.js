@@ -73,8 +73,16 @@
 
 	importSupport.controller('donateController', function($scope, $timeout){
 		$scope.localNeeds = totalNeeds;
-    	$scope.localDisaster = disasterType;
-    	$timeout($scope.localDisaster, 1000);
+     $scope.localDisaster;
+
+    function initData(){
+      $scope.localDisaster = disasterType;
+    }
+
+      setTimeout(function(){
+            initData();
+        }, 1000);
+
     		$scope.localDisaster = "Hurricane Matthew";
     		console.log($scope.localDisaster);
 
