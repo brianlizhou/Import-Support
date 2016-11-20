@@ -17,7 +17,7 @@
 
   <div>
             <div class="text-center">
-                <h1>Placeholder disaster</h1>
+                <h1>{{localDisaster}}</h1>
                 
                 <div class="container">
                     <p>Overall Food</p>
@@ -49,8 +49,13 @@
             </div>
 
 
- <!--   </div>
+
+   </div>
+
+<!--    <div id= "map" ng-include = " 'donateFlorida.html' "></div> -->
+
     <div id="map" ng-switch on="$scope.localDisaster">
+
     	<div ng-switch-when=" 'Hurricane Matthew' "><div>
     		<ng-include src ="'donateFlorida.html'"></ng-include>
     	</div>
@@ -59,9 +64,13 @@
     	</div>
     	<div ng-switch-when=" 'Earthquake near Sacramento' ">
      		<ng-include src ="'donateCalifornia.html'"></ng-include>
-    	<div>
-    </div> -->
+    	</div>
+    </div>
+
+   <!--  <div id="map"> </div>
+
     <div id="map"> </div>
+
 
       <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -164,7 +173,28 @@
           var content = esriLang.substitute(evt.graphic.attributes,t);
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
+<<<<<<< HEAD
           updateData(content);
+=======
+          //updateData(content);
+        });
+        
+         featureLayer.on("mouse-over", function(evt){
+          var t = "<b>${NAME}</b><hr><b>County Name: </b>${County_Name}<br>"
+            + "<b>Resources Needs Satisfied: </b>${Resources_Needs_Statisfied}<br>"
+
+          var content = esriLang.substitute(evt.graphic.attributes,t);
+
+          var highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
+          map.graphics.add(highlightGraphic);
+          dialog.setContent(content);
+          domStyle.set(dialog.domNode, "opacity", 0.85);
+          dijitPopup.open({
+            popup: dialog,
+            x: evt.pageX,
+            y: evt.pageY
+          });
+>>>>>>> 1ea34f6f2997f07594d675fce653db02b0bb0e9d
         });
 
 
