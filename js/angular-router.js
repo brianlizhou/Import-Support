@@ -133,7 +133,7 @@
           $scope.content = esriLang.substitute(evt.graphic.attributes,t);
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
-          //updateData(content);
+          console.log($scope.content);
         });
         
 
