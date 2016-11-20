@@ -62,7 +62,8 @@
 				params : {disaster: $scope.crisis.disaster}
 			}).success(function(data)
 			{
-        console.log($scope.crisis.disaster);
+				disasterType = $scope.crisis.disaster;
+        		console.log("DisasterType from Main: " + disasterType);
 				totalNeeds = data; // response data 
 				console.log(totalNeeds);
 			});
@@ -70,9 +71,12 @@
 		}
 	});
 
-	importSupport.controller('donateController', function($scope){
+	importSupport.controller('donateController', function($scope,. $timeout){
 		$scope.localNeeds = totalNeeds;
-    	$scope.localDisaster = disasterType;
+    	$timeout(function() {
+    		$scope.localDisaster = disasterType;
+    	}, 1000);
+    	console.log($scope.localDisaster);
 		$scope.submitForm = function() {
 			$http({
 				method: 'GET', 
