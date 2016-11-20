@@ -246,6 +246,9 @@
 	// create the controller and inject Angular's $scope
 	importSupport.controller('volunteerController', function($scope, $http) {
       // calling our submit function.
+      function updateData(){
+        console.log("hello");
+      }
       $scope.submitForm = function() {
       var originalValue;
 
