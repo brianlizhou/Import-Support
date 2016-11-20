@@ -59,7 +59,7 @@
       };
 
             var map;
-            var countyList = ["ADFs"];
+            countyList = ["ADFs"];
 
       require([
         "esri/map", "esri/layers/FeatureLayer",
