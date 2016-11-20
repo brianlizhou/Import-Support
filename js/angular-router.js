@@ -39,6 +39,7 @@
 			}).success(function(data)
 			{
 				totalNeeds = data; // response data 
+				console.log(totalNeeds);
 			});
 		}
 	});
