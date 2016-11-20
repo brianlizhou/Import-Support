@@ -22,7 +22,7 @@
                 <div class="container">
                     <p>Overall Food</p>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedFood/localNeeds.neededFood*100}}%">
+                        <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedFood/localNeeds.neededFood*100}}%">
                             {{localNeeds.receivedFood}}/{{localNeeds.neededFood}}
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="container">
                     <p>Overall Water</p>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedWater/localNeeds.neededWater*100}}%">
+                        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedWater/localNeeds.neededWater*100}}%">
                             {{localNeeds.receivedWater}}/{{localNeeds.neededWater}}
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                 <div class="container">
                     <p>Overall Clothing</p>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedClothing/localNeeds.neededClothing*100}}%">
+                        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedClothing/localNeeds.neededClothing*100}}%">
                             {{localNeeds.receivedClothing}}/{{localNeeds.neededClothing}}
                         </div>
                     </div>
@@ -155,7 +155,7 @@
           var content = esriLang.substitute(evt.graphic.attributes,t);
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
-          //updateData(content);
+          updateData(content);
         });
         
 
