@@ -239,7 +239,9 @@
       }).success(function(data)
       {
         originalValue = data; // response data 
-        $scope.volunteer.quantity += parseInt($scope.volunteer.quantity) + parseInt(originalValue);  
+        console.log(data);
+        var number = parseInt($scope.volunteer.quantity) + parseInt(originalValue);  
+        $scope.volunteer.quantity = parseInt(number);
       });
 
 
