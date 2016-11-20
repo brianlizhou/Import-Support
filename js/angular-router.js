@@ -83,7 +83,7 @@
             initData();
         }, 1000);
 
-    		$scope.localDisaster = "Hurricane Matthew";
+    		// $scope.localDisaster = "Hurricane Matthew";
     		console.log($scope.localDisaster);
 
 		$scope.updateData = function() {
