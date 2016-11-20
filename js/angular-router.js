@@ -50,6 +50,8 @@
 
 
 	var arrayToString;
+    var countyList = [];
+
 	importSupport.controller('orgController', function($scope, $http){
 	  $scope.submitForm = function() {
         $http({
@@ -76,7 +78,6 @@
       };
 
             var map;
-            var countyList = [];
 
       require([
         "esri/map", "esri/layers/FeatureLayer",
