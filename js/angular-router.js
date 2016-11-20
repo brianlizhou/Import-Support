@@ -79,17 +79,11 @@
       $scope.localDisaster = disasterType;
     }
 
-      setTimeout(function(){
-            initData();
-        }, 1000);
-
     		// $scope.localDisaster = "Hurricane Matthew";
-    		console.log($scope.localDisaster);
+    		console.log($scope.localDisaster); 
 
-		$scope.updateData = function() {
-
-
-
+		//function updateData($scope){
+			$scope.updateData = function(){
 			$http({
 				method: 'GET', 
 				url: 'https://quiet-crag-82048.herokuapp.com/county_needs',
@@ -189,9 +183,11 @@
         //
         // alternatively, ArcGIS Server's generate renderer task could be used
         var renderer = new ClassBreaksRenderer(symbol, "Resources_Needs_Statisfied");
-        renderer.addBreak(1, 25, new SimpleFillSymbol().setColor(new Color([56, 168, 0, 0.5])));
-        renderer.addBreak(25, 75, new SimpleFillSymbol().setColor(new Color([139, 209, 0, 0.5])));
-        renderer.addBreak(75, Infinity, new SimpleFillSymbol().setColor(new Color([255, 255, 0, 0.5])));
+        renderer.addBreak(0, 20, new SimpleFillSymbol().setColor(new Color([255, 0, 0, 0.5])));
+        renderer.addBreak(20, 40, new SimpleFillSymbol().setColor(new Color([255, 128, 0, 0.5])));
+        renderer.addBreak(40, 60, new SimpleFillSymbol().setColor(new Color([255, 255, 0, 0.5])));
+        renderer.addBreak(60, 89, new SimpleFillSymbol().setColor(new Color([139, 209, 0, 0.5])));
+        renderer.addBreak(89, Infinity, new SimpleFillSymbol().setColor(new Color([56,168, 0, 0.5])));
 
         //var infoTemplate = new InfoTemplate("${County_Name}", "${*}");
        
@@ -250,6 +246,9 @@
 	// create the controller and inject Angular's $scope
 	importSupport.controller('volunteerController', function($scope, $http) {
       // calling our submit function.
+      function updateData(){
+        console.log("hello");
+      }
       $scope.submitForm = function() {
       var originalValue;
 

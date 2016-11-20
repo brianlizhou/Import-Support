@@ -11,7 +11,7 @@
                 <div class="container">
                     <p>Overall Food</p>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedFood/localNeeds.neededFood*100}}%">
+                        <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedFood/localNeeds.neededFood*100}}%">
                             {{localNeeds.receivedFood}}/{{localNeeds.neededFood}}
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                 <div class="container">
                     <p>Overall Clothing</p>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedClothing/localNeeds.neededClothing*100}}%">
+                        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedClothing/localNeeds.neededClothing*100}}%">
                             {{localNeeds.receivedClothing}}/{{localNeeds.neededClothing}}
                         </div>
                     </div>
@@ -38,9 +38,9 @@
             </div>
 
 
-<<<<<<< HEAD
  <!--   </div>
     <div id="map" ng-switch on="$scope.localDisaster">
+<<<<<<< HEAD
 =======
 
 
@@ -49,7 +49,6 @@
 
     <div id="map" ng-switch="$scope.localDisaster">
 
->>>>>>> 653c478968145ce6c5a488be8d35320d7c2317f1
     	<div ng-switch-when=" 'Hurricane Matthew' "><div>
     		<ng-include src ="'donateFlorida.html'"></ng-include>
     	</div>
@@ -60,7 +59,7 @@
      		<ng-include src ="'donateCalifornia.html'"></ng-include>
     	<div>
     </div> -->
-    <div id="map"> </div>
+    <div id="map" ng-click= "updateData()"> </div>
 
       <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -147,38 +146,34 @@
        
 
         var highlightGraphic;
-
         
         featureLayer.on("click", function(evt){       
           var t = "${County_Name}"
           map.graphics.clear();
           var content = esriLang.substitute(evt.graphic.attributes,t);
+          document.getElementById("update").value = content;
+          document.getElementById("myButton").click();
+
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
+		  updateData();
 
-          var content = esriLang.substitute(evt.graphic.attributes,t);
-          updateData(content);
-          var highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
-          map.graphics.add(highlightGraphic);
-          dialog.setContent(content);
-          domStyle.set(dialog.domNode, "opacity", 0.85);
+        });
         
-
 
         featureLayer.setRenderer(renderer);
         map.addLayer(featureLayer);
         
-             map.infoWindow.resize(245,125);
-
-        dialog = new TooltipDialog({
-          id: "tooltipDialog",
-          style: "position: absolute; width: 250px; font: normal normal normal 10pt Helvetica;z-index:100"
-        });
-        dialog.startup();
-
       });
     </script>
   </head>
+
+<div ng-controller="donateController">
+  <input id="update" ng-change="updateData()"></input></div>
+  <div id = "div">
+  </div>
+    	<button id = "myButton" onclick="updateData()"></button>
+
 
     <!--assume we get orgList-->
     <div class="container" ng-repeat="org in orgList">
@@ -204,4 +199,52 @@
              </div>
      </div>
 
+  <img src="img/AngelRelief.jpg" width="95px" height="75px" style="margin-top:20px;border-radius:10px;margin-left:200px;"> <h3 style="color:white;margin-left:325px;margin-top:-55px"> Aid and Angels </h3>
+          <div style="width:40%;margin-top:-65px; margin-left: 550px;">
+              <div class="progress">
+               <p style="color:red;"> Food </p>
+                          <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{org.receivedWater/org.distributedWater*100}}%">
+                              {{org.receivedWater}}/{{localNeeds.distributedWater}} Water sent/received
+                          </div>
+               </div>
+
+               <div class="progress">
+                <p style="color:blue;"> Water </p>
+                          <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{org.receivedFood/org.distributedFood*100}}%">
+                              {{org.receivedFood}}/{{localNeeds.distributedFood}} Food sent/received
+                          </div>
+               </div>
+
+               <div class="progress">
+                <p style="color:green;"> Clothing </p>
+                          <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{org.receivedClothing/org.distributedClothing*100}}%">
+                              {{org.receivedClothing}}/{{localNeeds.distributedClothing}} Clothing sent/received
+                          </div>
+               </div>
+             </div>
+             <hline style="color:white; width:100%"> </hline>
+
+  <img src="img/HelpingHand.jpg" width="75px" height="75px" style="margin-top:20px;border-radius:10px;margin-left:220px;"> <h3 style="color:white;margin-left:305px; margin-top:-55px;"> Helping Hands </h3>
+             <div style="width:40%;margin-top:-65px; margin-left: 550px;">
+               <div class="progress">
+               <p style="color:red;"> Food </p>
+                          <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{org.receivedWater/org.distributedWater*100}}%">
+                              {{org.receivedWater}}/{{localNeeds.distributedWater}} Water sent/received
+                          </div>
+               </div>
+
+               <div class="progress">
+               <p style="color:blue;"> Water</p>
+                          <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{org.receivedFood/org.distributedFood*100}}%">
+                              {{org.receivedFood}}/{{localNeeds.distributedFood}} Food sent/received
+                          </div>
+               </div>
+
+               <div class="progress">
+                <p style="color:green;"> Clothing </p>
+                          <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{org.receivedClothing/org.distributedClothing*100}}%">
+                              {{org.receivedClothing}}/{{localNeeds.distributedClothing}} Clothing sent/received
+                          </div>
+               </div>
+              </div>
   </body>
