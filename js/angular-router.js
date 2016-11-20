@@ -32,14 +32,15 @@
 	
 	importSupport.controller('mainController', function($scope, $http){
 		$scope.submitForm = function() {
-		$http({
-			method: 'GET', 
-			url: 'js/test.json',
-			data : $scope.crisis
-		}).success(function(data)
-		{
-			$scope.totalNeeds = data; // response data 
-		});
+			$http({
+				method: 'GET', 
+				url: 'js/test.json',
+				data : $scope.crisis
+			}).success(function(data)
+			{
+				$scope.totalNeeds = data; // response data 
+			});
+		}
 	});
 
 	importSupport.controller('donateController', function($scope){})
