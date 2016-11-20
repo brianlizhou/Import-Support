@@ -48,6 +48,8 @@
 		$scope.localNeeds = totalNeeds;
 	});
 
+
+	var arrayToString;
 	importSupport.controller('orgController', function($scope, $http){
 	  $scope.submitForm = function() {
         $http({
@@ -162,7 +164,6 @@
           }
            $scope.$apply();
           console.log(arrayToString);
-          hello = 1;
         });
         
 
