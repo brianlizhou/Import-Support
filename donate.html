@@ -22,7 +22,7 @@
                 <div class="container">
                     <p>Overall Food</p>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedFood/localNeeds.neededFood*100}}%">
+                        <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedFood/localNeeds.neededFood*100}}%">
                             {{localNeeds.receivedFood}}/{{localNeeds.neededFood}}
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                 <div class="container">
                     <p>Overall Clothing</p>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedClothing/localNeeds.neededClothing*100}}%">
+                        <div class="progress-bar progress-bar-success progress-bar-striped active"  role="progressbar" style="width:{{localNeeds.receivedClothing/localNeeds.neededClothing*100}}%">
                             {{localNeeds.receivedClothing}}/{{localNeeds.neededClothing}}
                         </div>
                     </div>
@@ -110,12 +110,6 @@
         });
         
         
-         map.on("load", function(){
-          map.graphics.enableMouseEvents();
-          map.graphics.on("mouse-out", closeDialog);
-
-        });
-        
         var featureLayer = new FeatureLayer("https://services7.arcgis.com/vGwGOHEhgdNFiYyz/arcgis/rest/services/US_County_Resources_Needed/FeatureServer/0", {
           mode: FeatureLayer.MODE_SNAPSHOT,
           outFields: ["*"],
@@ -179,6 +173,9 @@
           var content = esriLang.substitute(evt.graphic.attributes,t);
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
+<<<<<<< HEAD
+          updateData(content);
+=======
           //updateData(content);
         });
         
@@ -197,12 +194,8 @@
             x: evt.pageX,
             y: evt.pageY
           });
+>>>>>>> 1ea34f6f2997f07594d675fce653db02b0bb0e9d
         });
-
-        function closeDialog() {
-          map.graphics.clear();
-          dijitPopup.close(dialog);
-        }
 
 
         featureLayer.setRenderer(renderer);
