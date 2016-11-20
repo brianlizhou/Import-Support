@@ -176,18 +176,10 @@
           //infoTemplate: infoTemplate
         });
         var highlightGraphic;
-        var justClicked = false;
-        
-        map.on("click", function(evt){    
-          if(!justClicked){
-           
-          }
-          justClicked = !justClicked
-        })
         
         featureLayer.on("click", function(evt){       
           var t = "${County_Name}"
-          map.graphics.clear();
+          
           var content = new String(esriLang.substitute(evt.graphic.attributes,t));
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
@@ -210,6 +202,10 @@
         	}
           document.getElementById("county").innerHTML = temp;
           console.log(arrayToString);
+        });
+
+        document.getElementById("clearButton").addEventListener('click', function (event) {
+          map.graphics.clear();
         });
         
 
