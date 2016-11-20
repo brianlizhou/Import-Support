@@ -172,7 +172,7 @@
             + "<b>Resources Needs Satisfied: </b>${Resources_Needs_Statisfied}<br>"
 
           var content = esriLang.substitute(evt.graphic.attributes,t);
-          updateData(content);
+          updateData();
           var highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
           dialog.setContent(content);
