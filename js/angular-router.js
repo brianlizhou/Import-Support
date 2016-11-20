@@ -238,7 +238,7 @@
         params : {organization: $scope.volunteer.organizationName,county:$scope.volunteer.county,resource:$scope.volunteer.resourceType}
       }).success(function(data)
       {
-        originalValue = data; // response data 
+        originalValue = data.providedResource; // response data 
         console.log(data);
         var number = parseInt($scope.volunteer.quantity) + parseInt(originalValue);  
         $scope.volunteer.quantity = parseInt(number);
