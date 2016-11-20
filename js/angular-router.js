@@ -150,7 +150,7 @@
         featureLayer.on("click", function(evt){       
           var t = "${County_Name}"
           map.graphics.clear();
-          var content = esriLang.substitute(evt.graphic.attributes,t);
+          var content = new String(esriLang.substitute(evt.graphic.attributes,t));
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
 
