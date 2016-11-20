@@ -69,7 +69,7 @@
 			}
       .error(function(data){
         console.log("Error: " + $scope.crisis.disaster);
-      });
+      }));
 
 		}
 	});
