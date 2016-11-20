@@ -59,7 +59,7 @@
       };
 
             var map;
-            var countyList = [];
+            var countyList = ["daf"];
             $scope.arrayToString = function(string){
             	if(string){
         return string.join(", ");}
