@@ -40,7 +40,7 @@
       };
     });
 
-	importSupport.controller('aboutController', function($scope) {
+	importSupport.controller('mainController', function($scope) {
 		$scope.message = 'Look! I am an about page.';
 	});
 
