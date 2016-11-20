@@ -243,7 +243,7 @@
         $scope.volunteer.quantity = parseInt(number);
       });
 
-
+      console.log($scope.volunteer);
 
         $http({
           method  : 'POST',
