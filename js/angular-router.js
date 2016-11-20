@@ -30,7 +30,7 @@
 	});
 	
 	
-	importSupport.controller('mainController', function($scope){});
+	importSupport.controller('mainController');
 
 	importSupport.controller('donateController', function($scope, $http)
 	{
