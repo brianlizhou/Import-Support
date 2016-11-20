@@ -49,8 +49,8 @@
             </div>
 
 
-   </div>
-    <div id="map" ng-switch on="localDisaster">
+ <!--   </div>
+    <div id="map" ng-switch on="$scope.localDisaster">
     	<div ng-switch-when=" 'Hurricane Matthew' "><div>
     		<ng-include src ="'donateFlorida.html'"></ng-include>
     	</div>
@@ -60,8 +60,8 @@
     	<div ng-switch-when=" 'Earthquake near Sacramento' ">
      		<ng-include src ="'donateCalifornia.html'"></ng-include>
     	<div>
-    </div>
-   <!--  <div id="map"> </div>
+    </div> -->
+    <div id="map"> </div>
 
       <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -208,7 +208,7 @@
 
       });
     </script>
-  </head> -->
+  </head>
 
     <!--assume we get orgList-->
     <div class="container" ng-repeat="org in orgList">
