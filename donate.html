@@ -67,7 +67,7 @@
     	</div>
     </div>
 
-   <!--  <div id="map"> </div>
+    <div id="map"> </div>
 
     <div id="map"> </div>
 
@@ -166,19 +166,7 @@
           justClicked = !justClicked
         });
 
-        
-        featureLayer.on("click", function(evt){       
-          var t = "${County_Name}"
-          map.graphics.clear();
-          var content = esriLang.substitute(evt.graphic.attributes,t);
-          highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
-          map.graphics.add(highlightGraphic);
-<<<<<<< HEAD
-          updateData(content);
-=======
-          //updateData(content);
-        });
-        
+      
          featureLayer.on("mouse-over", function(evt){
           var t = "<b>${NAME}</b><hr><b>County Name: </b>${County_Name}<br>"
             + "<b>Resources Needs Satisfied: </b>${Resources_Needs_Statisfied}<br>"
@@ -194,7 +182,6 @@
             x: evt.pageX,
             y: evt.pageY
           });
->>>>>>> 1ea34f6f2997f07594d675fce653db02b0bb0e9d
         });
 
 
