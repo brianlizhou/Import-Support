@@ -29,10 +29,16 @@
 	});
 
 	// create the controller and inject Angular's $scope
-	importSupport.controller('mainController', function($scope) {
-		// create a message to display in our view
-		$scope.message = 'Everyone come and see how good I look!';
-	});
+	importSupport.controller('volunteerController', function($scope, $http) {
+      // calling our submit function.
+      $scope.submitForm = function() {
+        $http({
+          method  : 'POST',
+          url     : 'js/posts.json',
+          data    : $scope.user, //forms user object
+        })
+      };
+    });
 
 	importSupport.controller('aboutController', function($scope) {
 		$scope.message = 'Look! I am an about page.';
