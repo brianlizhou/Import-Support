@@ -242,9 +242,10 @@
         console.log(data);
         var number = parseInt($scope.volunteer.quantity) + originalValue;  
         $scope.volunteer.quantity = parseInt(number);
+              console.log($scope.volunteer);
       });
 
-      console.log($scope.volunteer);
+
 
         $http({
           method  : 'POST',
