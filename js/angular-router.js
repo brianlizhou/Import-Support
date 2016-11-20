@@ -59,14 +59,10 @@
 		}
 	});
 
-<<<<<<< HEAD
-
-=======
 	importSupport.controller('donateController', function($scope){
 		$scope.localNeeds = totalNeeds;
     $scope.localDisaster = disasterType;
 	});
->>>>>>> 5ccbacdf99472095c74ae7272c85ecc13d32f4ab
 
 
 	var arrayToString;
