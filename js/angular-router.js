@@ -73,16 +73,36 @@
 
 	importSupport.controller('donateController', function($scope, $timeout){
 		$scope.localNeeds = totalNeeds;
-    	$scope.localDisaster = disasterType;
-    	$timeout($scope.localDisaster, 1000);
-    		$scope.localDisaster = "Hurricane Matthew";
+     $scope.localDisaster;
+
+    function initData(){
+      $scope.localDisaster = disasterType;
+    }
+
+      setTimeout(function(){
+            initData();
+        }, 1000);
+
+    		// $scope.localDisaster = "Hurricane Matthew";
     		console.log($scope.localDisaster);
 
-		$scope.submitForm = function() {
+		$scope.updateData = function() {
+
+
+
+			$http({
+				method: 'GET', 
+				url: 'https://quiet-crag-82048.herokuapp.com/county_needs',
+				params : {county: "egg"}
+			}).success(function(data)
+			{
+       			$scope.localNeeds = data;
+			});
+
 			$http({
 				method: 'GET', 
 				url: 'https://quiet-crag-82048.herokuapp.com/county_contributions',
-				params : {country: "egg"}
+				params : {county: "egg"}
 			}).success(function(data)
 			{
        			$scope.orgList = data;
