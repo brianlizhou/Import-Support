@@ -135,7 +135,7 @@
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
 
-          if(countyList.contains($scope.content)){
+          if(countyList.includes($scope.content)){
           	countyList.remove($scope.content);
           }
           else{
