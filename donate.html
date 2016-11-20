@@ -153,8 +153,8 @@
           var t = "${County_Name}"
           map.graphics.clear();
           var content = esriLang.substitute(evt.graphic.attributes,t);
-          document.getElementById("update").value = content;
-          document.getElementById("myButton").click();
+          // document.getElementById("update").value = content;
+          // document.getElementById("myButton").click();
 
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
@@ -166,14 +166,14 @@
         
 
         featureLayer.setRenderer(renderer);
-        map.addLayer(featureLayer);
-        
+        map.addLayer(featureLayer)
+;        
       });
     </script>
   </head>
 
 <div ng-controller="donateController">
-  <input id="update" ng-change="updateData()"></input></div>
+  <input id="update" style="display:none" ng-change="updateData()"></input></div>
   <div id = "div">
   </div>
     	<button id = "myButton" onclick="updateData()"></button>
