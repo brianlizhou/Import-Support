@@ -62,8 +62,7 @@
 				params : {disaster: $scope.crisis.disaster}
 			}).success(function(data)
 			{
-        disasterType = $scope.crisis.disaster;
-        //console.log(diasterType);
+        console.log($scope.crisis.disaster);
 				totalNeeds = data; // response data 
 				console.log(totalNeeds);
 			});
