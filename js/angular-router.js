@@ -30,15 +30,20 @@
 	});
 	
 	
-	importSupport.controller('mainController', function($scope){});
-
-	importSupport.controller('donateController', function($scope, $http)
-	{
-		$http({method: 'GET', url: 'js/test.json'}).success(function(data)
-		{
-			$scope.totalNeeds = data; // response data 
-		});
+	importSupport.controller('mainController', function($scope, $http){
+		$scope.submitForm = function() {
+			$http({
+				method: 'POST', 
+				url: 'https://quiet-crag-82048.herokuapp.com/organizations',
+				data : $scope.crisis
+			}).success(function(data)
+			{
+				$scope.totalNeeds = data; // response data 
+			});
+		}
 	});
+
+	importSupport.controller('donateController', function($scope){});
 
 	importSupport.controller('orgController', function($scope, $http){
 		$scope.submitForm = function() {
