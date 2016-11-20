@@ -17,7 +17,7 @@
 
   <div>
             <div class="text-center">
-                <h1>Placeholder disaster</h1>
+                <h1>{{localDisaster}}</h1>
                 
                 <div class="container">
                     <p>Overall Food</p>
@@ -49,10 +49,15 @@
             </div>
 
 
+<<<<<<< HEAD
    </div>
 
    <div ng-include = " 'donateFlorida.html' "></div>
 <!--     <div id="map" ng-switch on="localDisaster">
+=======
+ <!--   </div>
+    <div id="map" ng-switch on="$scope.localDisaster">
+>>>>>>> bd4c3d00507c7e4fa45bd86d3d6f1e31b635a3a4
     	<div ng-switch-when=" 'Hurricane Matthew' "><div>
     		<ng-include src ="'donateFlorida.html'"></ng-include>
     	</div>
@@ -63,7 +68,11 @@
      		<ng-include src ="'donateCalifornia.html'"></ng-include>
     	<div>
     </div> -->
+<<<<<<< HEAD
    <!--  <div id="map"> </div>
+=======
+    <div id="map"> </div>
+>>>>>>> bd4c3d00507c7e4fa45bd86d3d6f1e31b635a3a4
 
       <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -180,6 +189,7 @@
             + "<b>Resources Needs Satisfied: </b>${Resources_Needs_Statisfied}<br>"
 
           var content = esriLang.substitute(evt.graphic.attributes,t);
+
           var highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
           dialog.setContent(content);
@@ -210,7 +220,7 @@
 
       });
     </script>
-  </head> -->
+  </head>
 
     <!--assume we get orgList-->
     <div class="container" ng-repeat="org in orgList">
