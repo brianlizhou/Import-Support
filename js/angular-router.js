@@ -43,8 +43,7 @@
 		}
 	});
 
-	importSupport.controller('donateController', function($scope){})
-	});
+	importSupport.controller('donateController', function($scope){});
 
 	importSupport.controller('orgController', function($scope, $http){
 		$scope.submitForm = function() {
