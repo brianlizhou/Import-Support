@@ -61,7 +61,7 @@
         if($scope.org.food){
         	var len = countyList.length;
         	for(var i =0;i<len;i++){
-        		$scope.scopeServices.organizationName = 1;
+        		$scope.scopeServices.organizationName = $scope.org.organizationName;
         		$scope.scopeServices.county = countyList[i];
         		$scope.scopeServices.resourceType = "food";
         		$http({
