@@ -59,6 +59,7 @@
       };
 
             var map;
+            var countyList = [];
       require([
         "esri/map", "esri/layers/FeatureLayer",
         "esri/InfoTemplate", "esri/symbols/SimpleFillSymbol", "esri/symbols/SimpleLineSymbol",
@@ -133,7 +134,14 @@
           $scope.content = esriLang.substitute(evt.graphic.attributes,t);
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
-          console.log($scope.content);
+
+          if(countyList.contains($scope.content)){
+          	countyList.remove($scope.content);
+          }
+          else{
+          	countyList.push($scope.content);
+          }
+
         });
         
 
