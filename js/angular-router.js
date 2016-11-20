@@ -76,7 +76,7 @@
       };
 
             var map;
-            countyList = [];
+            var countyList = [];
 
       require([
         "esri/map", "esri/layers/FeatureLayer",
