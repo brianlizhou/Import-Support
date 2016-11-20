@@ -206,6 +206,7 @@
 
         document.getElementById("clearButton").addEventListener('click', function (event) {
           map.graphics.clear();
+          document.getElementById("county").innerHTML = "Counties selected: ";
         });
         
 
