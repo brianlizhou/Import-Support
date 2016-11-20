@@ -77,7 +77,6 @@
     		$scope.$apply();
     		console.log($scope.localDisaster);
 
-    	console.log($scope.localDisaster);
 		$scope.submitForm = function() {
 			$http({
 				method: 'GET', 
@@ -239,9 +238,7 @@
       }).success(function(data)
       {
         originalValue = data; // response data 
-        console.log(data);
-        var number = parseInt($scope.volunteer.quantity) + parseInt(originalValue);  
-        $scope.volunteer.quantity = parseInt(number);
+        $scope.volunteer.quantity += $scope.volunteer.quantity + originalValue;   
       });
 
 
