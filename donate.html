@@ -163,7 +163,8 @@
         var xmlhttp = $.get("https://quiet-crag-82048.herokuapp.com/county_contributions", {county:content});
         console.log(xmlhttp);
         var result = JSON.parse(xmlhttp.responseText);
-        document.getElementById("aidHealth").style.width= (result[0].distributedWater/result[0].receivedWater)*100 + "%";
+        console.log(result[0].distributedWater);
+        document.getElementById("aidHealth").style.width= (result[0].distributedWater)/(result[0].receivedWater)*100 + "%";
         });
         
 
