@@ -73,7 +73,9 @@
 
 	importSupport.controller('donateController', function($scope){
 		$scope.localNeeds = totalNeeds;
-    	$scope.localDisaster = disasterType;
+    	$timeout(function() {
+    		$scope.localDisaster = disasterType;
+    	}, 1000);
     	console.log($scope.localDisaster);
 		$scope.submitForm = function() {
 			$http({
