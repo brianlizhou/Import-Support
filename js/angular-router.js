@@ -60,6 +60,9 @@
 
             var map;
             var countyList = [];
+            $scope.arrayToString = function(string){
+        return string.join(", ");
+    };
       require([
         "esri/map", "esri/layers/FeatureLayer",
         "esri/InfoTemplate", "esri/symbols/SimpleFillSymbol", "esri/symbols/SimpleLineSymbol",
