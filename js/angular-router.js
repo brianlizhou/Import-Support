@@ -35,7 +35,7 @@
 			$http({
 				method: 'GET', 
 				url: 'https://quiet-crag-82048.herokuapp.com/disaster',
-				params : $scope.crisis
+				params : {disaster: $scope.crisis.disaster}
 			}).success(function(data)
 			{
 				$scope.totalNeeds = data; // response data 
