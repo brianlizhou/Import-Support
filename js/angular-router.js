@@ -19,7 +19,7 @@
 			// route for the organization page
 			.when('/organization', {
 				templateUrl : 'orgform.html',
-				controller  : 'orgController'
+				controller  : 'aboutController'
 			})
 
 			// route for the volunteer page
@@ -40,7 +40,6 @@
 		});
 	});
 
-	importSupport.controller('orgController');
 
 	// create the controller and inject Angular's $scope
 	importSupport.controller('volunteerController', function($scope, $http) {
@@ -50,7 +49,6 @@
           method  : 'POST',
           url     : 'js/posts.json',
           data    : $scope.user, //forms user object
-          headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
       };
     });
