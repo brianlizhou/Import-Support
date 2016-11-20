@@ -44,3 +44,4 @@ $http({method: 'GET', url: 'js/test.json'}).success(function(data)
 {
 $scope.totalNeeds = data; // response data 
 });
+});
