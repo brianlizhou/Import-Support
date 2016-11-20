@@ -80,9 +80,9 @@
     }
 
     		// $scope.localDisaster = "Hurricane Matthew";
-    		console.log($scope.localDisaster);
+    		console.log($scope.localDisaster); 
 
-		function updateData(){
+		function updateData($scope){
 			$http({
 				method: 'GET', 
 				url: 'https://quiet-crag-82048.herokuapp.com/county_needs',
