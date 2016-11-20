@@ -77,7 +77,6 @@
     		$scope.$apply();
     		console.log($scope.localDisaster);
 
-    	console.log($scope.localDisaster);
 		$scope.submitForm = function() {
 			$http({
 				method: 'GET', 
