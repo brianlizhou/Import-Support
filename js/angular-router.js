@@ -56,17 +56,7 @@
 		}
 	});
 
-	document.getElementById('totalView').innerHTML += 'importSupport.controller('donateController', function($scope){
-		$scope.localNeeds = totalNeeds;
-		<div class="container">
-                    <p>Overall Food</p>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{localNeeds.receivedFood/localNeeds.neededFood*100}}%">
-                            {{localNeeds.receivedFood/localNeeds.neededFood*100}}%
-                        </div>
-                    </div>
-                </div>
-	});';
+
 
 
 	var arrayToString;
