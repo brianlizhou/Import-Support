@@ -63,7 +63,7 @@
 			}).success(function(data)
 			{
         disasterType = $scope.crisis.disaster;
-        console.log(diasterType);
+        //console.log(diasterType);
 				totalNeeds = data; // response data 
 				console.log(totalNeeds);
 			});
