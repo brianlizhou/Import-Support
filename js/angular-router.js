@@ -60,7 +60,7 @@
         })
         if($scope.org.food){
         	var len = countyList.length;
-        	$scope.scopeServices = null;
+        	$scope.scopeServices = 5;
         	for(var i =0;i<len;i++){
         		$scope.scopeServices.organizationName = $scope.org.organizationName;
         		$scope.scopeServices.county = countyList[i];
