@@ -147,7 +147,7 @@
           	arrayToString =countyList.join(", ");
           }
           console.log(arrayToString);
-
+          hello = 1;
         });
         
 
