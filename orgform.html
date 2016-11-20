@@ -108,14 +108,12 @@
   <form class="cf" ng-submit="submitForm()">
     <div class="full left cf">
       <input type="text" id="input-name" placeholder="Organization Name" ng-model="org.organizationName">
+      <textarea name="address" type="text" id="input-address" placeholder="Address" ng-model="org.organizationAddress"></textarea>
     </div>
       <div class="checkboxes">
       <input type="checkbox" class="resourceCheck" name="resource" ng-model="org.food"/> Food
        <input type="checkbox"  class="resourceCheck" name="resource" ng-model="org.water"/> Water
        <input type="checkbox" class="resourceCheck" name="resource" ng-model="org.clothing"/> Clothing
     </div>
-    <div class="full left cf">
-      <textarea name="address" type="text" id="input-address" placeholder="Address" ng-model="org.organizationAddress"></textarea>
-    </div>  
     <input type="submit" value="Register" id="input-submit">
   </form>
