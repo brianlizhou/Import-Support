@@ -45,7 +45,7 @@
         $http({
           method  : 'POST',
           url     : 'https://quiet-crag-82048.herokuapp.com/organizations',
-          data    : $scope.user, //forms user object
+          data    : $scope.org, //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
       };
@@ -58,7 +58,7 @@
         $http({
           method  : 'POST',
           url     : 'https://quiet-crag-82048.herokuapp.com/verification',
-          data    : $scope.user, //forms user object
+          data    : $scope.volunteer, //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
       };

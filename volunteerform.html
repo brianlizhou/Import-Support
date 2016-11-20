@@ -1,8 +1,8 @@
 <h1>Volunteer</h1>
 <form class="cf" ng-submit="submitForm()">
   <div class="full left cf">
-    <input type="text" id="input-location" placeholder="Location" ng-model="user.county">
-    <input list = "Organization" id="list-org" placeholder="Organizations" ng-model="user.organizationName">
+    <input type="text" id="input-location" placeholder="Location" ng-model="volunteer.county">
+    <input list = "Organization" id="list-org" placeholder="Organizations" ng-model="volunteer.organizationName">
     <datalist id="Organization">
       <option value="Internet Explorer">
         <option value="Firefox">
@@ -10,8 +10,8 @@
             <option value="Opera">
               <option value="Safari">
               </datalist>
-              <input type="text" id="autocomplete-supply" placeholder="Supply" ng-model="user.resourceType">
-              <input type="text" id="input-quantity" placeholder="Quantity" ng-model="user.quantity">
+              <input type="text" id="autocomplete-supply" placeholder="Supply" ng-model="volunteer.resourceType">
+              <input type="text" id="input-quantity" placeholder="Quantity" ng-model="volunteer.quantity">
             </div>
 
           </div>

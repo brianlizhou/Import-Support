@@ -1,10 +1,10 @@
   <h1>New Organization</h1>
   <form class="cf" ng-submit="submitForm()">
     <div class="half left cf">
-      <input type="text" id="input-name" placeholder="Organization Name">
+      <input type="text" id="input-name" placeholder="Organization Name" ng-model="org.organizationName">
     </div>
     <div class="half right cf">
-      <textarea name="address" type="text" id="input-address" placeholder="Address"></textarea>
+      <textarea name="address" type="text" id="input-address" placeholder="Address" ng-model="org.organizationAddress"></textarea>
     </div>  
     <input type="submit" value="Register" id="input-submit">
   </form>
