@@ -78,11 +78,24 @@
     		$scope.localDisaster = "Hurricane Matthew";
     		console.log($scope.localDisaster);
 
-		$scope.submitForm = function() {
+		$scope.updateData = function() {
+
+
+
+			$http({
+				method: 'GET', 
+				url: 'https://quiet-crag-82048.herokuapp.com/county_needs',
+				params : {county: "egg"}
+			}).success(function(data)
+			{
+       			$scope.localNeeds = data;
+       			$scope.
+			});
+
 			$http({
 				method: 'GET', 
 				url: 'https://quiet-crag-82048.herokuapp.com/county_contributions',
-				params : {country: "egg"}
+				params : {county: "egg"}
 			}).success(function(data)
 			{
        			$scope.orgList = data;
