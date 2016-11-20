@@ -60,11 +60,11 @@
         })
         if($scope.org.food){
         	var len = countyList.length;
-        	$scope.scopeServices = 5;
+        	var scopeServices;
         	for(var i =0;i<len;i++){
-        		$scope.scopeServices.organizationName = $scope.org.organizationName;
-        		$scope.scopeServices.county = countyList[i];
-        		$scope.scopeServices.resourceType = "food";
+        		scopeServices.organizationName = $scope.org.organizationName;
+        		scopeServices.county = countyList[i];
+        		scopeServices.resourceType = "food";
         		$http({
           			method  : 'POST',
           			url     : 'https://quiet-crag-82048.herokuapp.com/services',
