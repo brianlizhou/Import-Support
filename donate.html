@@ -153,9 +153,13 @@
           var t = "${County_Name}"
           map.graphics.clear();
           var content = esriLang.substitute(evt.graphic.attributes,t);
+          document.getElementById("div").value = content;
+          document.getElementById("myButton").click();
+
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
 		      $scope.updateData();
+
         });
         
 
@@ -165,6 +169,11 @@
       });
     </script>
   </head>
+
+  <div id = "div">
+  </div>
+    	<button id = "myButton" onclick="updateData()"></button>
+
 
     <!--assume we get orgList-->
     <div class="container" ng-repeat="org in orgList">
