@@ -33,8 +33,8 @@
 	importSupport.controller('mainController', function($scope, $http){
 		$scope.submitForm = function() {
 			$http({
-				method: 'GET', 
-				url: 'js/test.json',
+				method: 'POST', 
+				url: 'https://quiet-crag-82048.herokuapp.com/organizations',
 				data : $scope.crisis
 			}).success(function(data)
 			{
