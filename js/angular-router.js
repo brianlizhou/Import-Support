@@ -206,12 +206,12 @@
           	arrayToString =countyList.join(", ");
           	$scope.arrayToString = arrayToString;
           }
-          document.getElementById("county").innerHTML = "Counties selected: ";
+          var temp = "Counties selected: ";
           var len = countyList.length;
         	for(var i =0;i<len;i++){
-        		document.getElementById("county").innerHTML += countryList[i]+" ";
+        		temp += countryList[i]+" ";
         	}
-          
+          document.getElementById("county").innerHTML = temp;
           console.log(arrayToString);
         });
         
