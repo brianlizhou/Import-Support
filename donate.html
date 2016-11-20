@@ -1,5 +1,21 @@
+<<<<<<< HEAD
 
   <body>
+=======
+<div class="content" ng-switch on="disasterType">
+    <div ng-switch-when="hurricane" >
+        <ng-include src=" 'donateFlorida.html' "></ng-include>
+    </div>
+    <div ng-switch-when="earthquake">
+        <ng-include src="'donateCalifornia.html'"></ng-include>
+    </div>
+        <div ng-switch-when="tornado">
+        <ng-include src="'donateKansas.html'"></ng-include>
+    </div>
+</div>
+  
+  <body onload="load()">
+>>>>>>> 7507445c7647107742fdcec41d6302aae74190b0
 
    <a href="#"><img style="vertical-align:top;width:75px;height:auto;position:absolute; margin-left: 15px; margin-top:5px;" src="img/BackButton.svg"/></a>
 
@@ -156,8 +172,10 @@
 
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
-		  updateData();
+		      updateData();
 
+        var xmlhttp = $.get("https://quiet-crag-82048.herokuapp.com/county_contributions", {county:content});
+        console.log(xmlhttp);
         });
         
 
@@ -248,3 +266,11 @@
                </div>
               </div>
   </body>
+
+  <script>
+
+    function load(){
+
+    }
+
+  </script>
