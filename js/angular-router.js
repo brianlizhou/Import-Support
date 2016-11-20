@@ -209,7 +209,7 @@
           var temp = "Counties selected: ";
           var len = countyList.length;
         	for(var i =0;i<len;i++){
-        		temp += countyList[i]+" ";
+        		temp += countyList[i]+", ";
         	}
           document.getElementById("county").innerHTML = temp;
           console.log(arrayToString);
