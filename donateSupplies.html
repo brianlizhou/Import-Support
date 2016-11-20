@@ -1,0 +1,24 @@
+<h1>Donate Resources</h1>
+<form class="cf" ng-submit="submitForm()">
+  <div class="full left cf">
+    <input list = "Organization" id="list-org" placeholder="Organizations">
+    <datalist id="Organization" value="placeholder" ng-model="donate.organizationName">
+      <option value="Internet Explorer">
+        <option value="Firefox">
+          <option value="Chrome">
+            <option value="Opera">
+              <option value="Safari">
+              </datalist>
+              <p>placeholder for address</p>
+              <input type="text" id="input-county" ng-model="donate.county">
+              <input list = "Resource" id="list-resource" placeholder="Resources" ng-model="donate.resourceType">
+              <datalist id="Resource">
+                <option value="Food">
+                  <option value="Water">
+                    <option value="Clothing">
+                    </datalist>
+                    <input type="text" id="input-supply" placeholder="Quantity">
+                  </div>
+                </div>
+                <input type="submit" value="Send" id="input-send">
+              </form>
