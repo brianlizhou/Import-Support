@@ -206,6 +206,12 @@
           	arrayToString =countyList.join(", ");
           	$scope.arrayToString = arrayToString;
           }
+          document.getElementById("county").innerHTML = "Counties selected: ";
+          var len = countyList.length;
+        	for(var i =0;i<len;i++){
+        		document.getElementById("county").innerHTML += countryList[i]+" ";
+        	}
+          
           console.log(arrayToString);
         });
         
