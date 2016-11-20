@@ -59,11 +59,8 @@
       };
 
             var map;
-            var countyList = ["daf"];
-            $scope.arrayToString = function(string){
-            	if(string){
-        return string.join(", ");}
-    };
+            countyList = ["ADFs"];
+
       require([
         "esri/map", "esri/layers/FeatureLayer",
         "esri/InfoTemplate", "esri/symbols/SimpleFillSymbol", "esri/symbols/SimpleLineSymbol",
@@ -146,8 +143,12 @@
           else{
           	countyList.push($scope.content);
           }
-          console.log(countyList);
-
+          if(countyList){
+          	arrayToString =countyList.join(", ");
+          }
+           $scope.$apply();
+          console.log(arrayToString);
+          hello = 1;
         });
         
 
