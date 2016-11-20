@@ -89,7 +89,6 @@
 			}).success(function(data)
 			{
        			$scope.localNeeds = data;
-       			$scope.
 			});
 
 			$http({
