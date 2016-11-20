@@ -38,7 +38,7 @@
 				params : {disaster: $scope.crisis.disaster}
 			}).success(function(data)
 			{
-				totalNeeds = data; // response data 
+				var totalNeeds = data; // response data 
 				console.log(totalNeeds);
 				$scope.$apply();
 			});
