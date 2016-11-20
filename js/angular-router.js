@@ -40,6 +40,7 @@
 			{
 				totalNeeds = data; // response data 
 				console.log(totalNeeds);
+				$scope.$apply();
 			});
 		}
 	});
