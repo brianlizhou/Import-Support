@@ -73,8 +73,9 @@
 
 	importSupport.controller('donateController', function($scope, $timeout){
 		$scope.localNeeds = totalNeeds;
-    		$scope.localDisaster = disasterType;
-    		$scope.$apply();
+    		// $scope.localDisaster = disasterType;
+    		// $scope.$apply();
+    		$scope.localDisaster = "Hurricane Matthew";
     		console.log($scope.localDisaster);
 
 		$scope.submitForm = function() {
