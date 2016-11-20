@@ -8,7 +8,7 @@
 
             <form class="cf" ng-submit="submitForm()">
   <div class="full left cf">
-    <input list = "Crisis" id="list-org" placeholder="Crisis" ng-model="crisis.organizationName">
+    <input list = "Crisis" id="list-org" placeholder="Crisis" ng-model="crisis.disaster">
     <datalist id="Crisis">
       <option value="Hurricane">
               </datalist>
@@ -16,4 +16,8 @@
           </div>
           <input type="submit" value="Submit" id="input-submit">
         </form>
+
+        {{totalNeeds.receivedFood}}
+        {{totalNeeds.neededFood}}
+        {{totalNeeds.receivedWater}}
         </div>

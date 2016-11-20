@@ -33,9 +33,9 @@
 	importSupport.controller('mainController', function($scope, $http){
 		$scope.submitForm = function() {
 			$http({
-				method: 'POST', 
-				url: 'https://quiet-crag-82048.herokuapp.com/organizations',
-				data : $scope.crisis
+				method: 'GET', 
+				url: 'https://quiet-crag-82048.herokuapp.com/disaster',
+				params : {disaster: $scope.crisis.disaster}
 			}).success(function(data)
 			{
 				$scope.totalNeeds = data; // response data 
