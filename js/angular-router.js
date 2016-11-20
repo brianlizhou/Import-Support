@@ -10,24 +10,38 @@
 				controller  : 'mainController'
 			})
 
-			// route for the about page
-			.when('/org', {
-				templateUrl : 'orgform.html',
-				controller  : 'aboutController'
-			})
-
-			// route for the contact page
-			.when('/volunteer', {
-				templateUrl : 'volunteerform.html',
-				controller  : 'volunteerController'
-			})
-
+			// route for the donate page
 			.when('/donate', {
 				templateUrl : 'donate.html',
 				controller  : 'donateController'
+			})
+
+			// route for the organization page
+			.when('/organization', {
+				templateUrl : 'orgform.html',
+				controller  : 'orgController'
+			})
+
+			// route for the volunteer page
+			.when('/volunteer', {
+				templateUrl : 'volunteerform.html',
+				controller  : 'volunteerController'
 			});
 	});
 	
+	
+	importSupport.controller('mainController', function($scope){});
+
+	importSupport.controller('donateController', function($scope, $http)
+	{
+		$http({method: 'GET', url: 'js/test.json'}).success(function(data)
+		{
+			$scope.totalNeeds = data; // response data 
+		});
+	});
+
+	importSupport.controller('orgController');
+
 	// create the controller and inject Angular's $scope
 	importSupport.controller('volunteerController', function($scope, $http) {
       // calling our submit function.
@@ -36,18 +50,7 @@
           method  : 'POST',
           url     : 'js/posts.json',
           data    : $scope.user, //forms user object
+          headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
       };
     });
-
-	importSupport.controller('mainController', function($scope) {
-		$scope.message = 'Look! I am an about page.';
-	});
-
-	importSupport.controller('donateController', function($scope, $http)
-{
-$http({method: 'GET', url: 'js/test.json'}).success(function(data)
-{
-$scope.totalNeeds = data; // response data 
-});
-});
