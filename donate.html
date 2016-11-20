@@ -153,7 +153,7 @@
           var t = "${County_Name}"
           map.graphics.clear();
           var content = esriLang.substitute(evt.graphic.attributes,t);
-          document.getElementById("div").value = content;
+          document.getElementById("update").value = content;
           document.getElementById("myButton").click();
 
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
@@ -170,6 +170,7 @@
     </script>
   </head>
 
+  <input id="update" ng-change="updateData()"></input>
   <div id = "div">
   </div>
     	<button id = "myButton" onclick="updateData()"></button>
