@@ -28,10 +28,21 @@
 				controller  : 'volunteerController'
 			})
 
+			.when('/donationGeneral', {
+				templateUrl : 'donateMoney.html',
+				controller  : 'donateMoneyController'
+			})
+
       // route for the donate to supplies page
       .when('/donateToSupplies', {
         templateUrl : 'donateToSupplies.html',
         controller  : 'donateToSuppliesController'
+      })
+
+      // route for the donate to supplies page
+      .when('/donatePayment', {
+        templateUrl : 'donationPayment.html',
+        controller  : 'paymentController'
       })
 
       // route for the donate supplies page
@@ -61,7 +72,17 @@
 
 	importSupport.controller('donateController', function($scope){
 		$scope.localNeeds = totalNeeds;
-    $scope.localDisaster = disasterType;
+    	$scope.localDisaster = disasterType;
+		$scope.submitForm = function() {
+			$http({
+				method: 'GET', 
+				url: 'https://quiet-crag-82048.herokuapp.com/county_contributions',
+				params : {country: "egg"}
+			}).success(function(data)
+			{
+       			$scope.orgList = data;
+			});
+		}
 	});
 
 
@@ -207,6 +228,22 @@
           data    : $scope.volunteer, //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
+      };
+    });
+
+	var donationAmt;
+     // create the controller and inject Angular's $scope
+  importSupport.controller('donateMoneyController', function($scope, $http) {
+      // calling our submit function.
+      $scope.submitForm = function() {
+        donationAmt = $scope.donation.amount;
+      };
+    });
+
+   importSupport.controller('paymentController', function($scope, $http) {
+      // calling our submit function.
+      $scope.submitForm = function() {
+        $scope.donation.amount = donationAmt;
       };
     });
 
