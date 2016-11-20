@@ -50,7 +50,7 @@
         $http({
           method  : 'POST',
           url     : 'https://quiet-crag-82048.herokuapp.com/organizations',
-          data    : $scope.org, //forms user object
+          data    : {organizationName: $scope.org.organizationName, organizationAddress, $scope.org.organizationAddress}, //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
       };
@@ -63,7 +63,7 @@
         $http({
           method  : 'POST',
           url     : 'https://quiet-crag-82048.herokuapp.com/verification',
-          data    : $scope.volunteer, //forms user object
+          data    : {county: $scope.volunteer.county, organizationName: $scope.volunteer.organizationName, resourceType: scope.volunteer.resourceType, quantity: scope.volunteer.quantity}, //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
       };
