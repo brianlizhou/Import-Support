@@ -27,6 +27,18 @@
 				templateUrl : 'volunteerform.html',
 				controller  : 'volunteerController'
 			});
+
+      // route for the donate to supplies page
+      .when('/donateToSupplies', {
+        templateUrl : 'donateToSupplies.html',
+        controller  : 'donateToSuppliesController'
+      });
+
+      // route for the donate supplies page
+      .when('/donateSupplies', {
+        templateUrl : 'donateSupplies.html',
+        controller  : 'donateSuppliesController'
+      });
 	});
 	
 	
@@ -172,6 +184,32 @@
           method  : 'POST',
           url     : 'https://quiet-crag-82048.herokuapp.com/verification',
           data    : $scope.volunteer, //forms user object
+          headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+      };
+    });
+
+  // create the controller and inject Angular's $scope
+  importSupport.controller('donateToSuppliesController', function($scope, $http) {
+      // calling our submit function.
+      $scope.submitForm = function() {
+        $http({
+          method  : 'POST',
+          url     : 'https://quiet-crag-82048.herokuapp.com/verification',
+          data    : $scope.donate, //forms user object
+          headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+      };
+    });
+
+  // create the controller and inject Angular's $scope
+  importSupport.controller('donateSuppliesController', function($scope, $http) {
+      // calling our submit function.
+      $scope.submitForm = function() {
+        $http({
+          method  : 'POST',
+          url     : 'https://quiet-crag-82048.herokuapp.com/verification',
+          data    : $scope.donate, //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
       };
