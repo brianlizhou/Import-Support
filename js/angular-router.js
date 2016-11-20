@@ -17,8 +17,8 @@
 			})
 
 			// route for the contact page
-			.when('/contact', {
-				templateUrl : 'contact.html',
+			.when('/volunteer', {
+				templateUrl : 'volunteerform.html',
 				controller  : 'contactController'
 			});
 	});
