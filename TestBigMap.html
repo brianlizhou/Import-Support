@@ -1,158 +1,133 @@
-
 <!DOCTYPE html>
-<meta charset="utf-8">
-<head>
-  <base target="_parent" />
-</head>
-<body>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-    <style type="text/css">
-    .datamaps-hoverover {
-        display: none;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
-    hr {
-        margin-left: 20px;
-    }
-    
-    body {
-        width: 730px;
-        font-family: 'Open Sans', sans-serif;
-        z-index: -10;
-    }
-    
-    form {
-        margin-right: 20px;
-        margin-left: 20px;
-        margin-top: 20px;
-    }
-    
-    h1 {
-        margin-bottom: 0px;
-    }
-    
-    #map_election {
-        margin-top: -20px;
-        width: 730px;
-        height: 600px;
-    }
-    
-    .hoverinfo {
-        font-family: 'Open Sans', sans-serif;
-        text-align: center;
-        padding: 7px;
-        border-radius: 1px;
-        background-color: #FFF;
-        box-shadow: 1px 1px 5px #CCC;
-        font-size: 12px;
-        border: 1px solid #CCC;
-    }
-    
-    #explanation {
-        margin-left: 20px;
-        font-size: 14px;
-        float: right;
-        margin-bottom: -20px;
-    }
-    
-    .state {
-        font-size: 14px;
-        font-weight: bold;
-    }
-    
-    .votingPowerIndex,
-    .tippingPower {
-        font-weight: bold;
-        font-size: 17px;
-    }
-    
-    .hoverinfo hr {
-        border: 1px dotted #CCC;
-    }
-    
-    #stateToVoteIn {
-        z-index: 5;
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-    
-    .credit {
-        text-align: right;
-    }
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Feature Layer - display results as an InfoWindow onHover</title>
 
+    <link rel="stylesheet" href="https://js.arcgis.com/3.18/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">
+    <style>
+      html, body, #mapDiv {
+        padding:0;
+        margin:0;
+        height:100%;
+      }
+      #mapDiv {
+        position: relative;
+      }
+      #info {
+        background: #fff;
+        box-shadow: 0 0 5px #888;
+        left: 1em;
+        padding: 0.5em;
+        position: absolute;
+        top: 1em;
+        z-index: 40;
+      }
     </style>
-    <form class="pure-form pure-form-stacked">
-        <label class="input">
-            <h1>Chronicle Interactive: Where should I vote?</h1>
-            <div id="intro">Votes are more impactful in some states than others. Select the state where you’re currently registered to vote and we’ll check <a href="http://projects.fivethirtyeight.com/2016-election-forecast/?ex_cid=rrpromo">FiveThirtyEight’s</a> Voter Power Index to see if your vote will be more impactful if you register in North Carolina.</div>
-        </label>
-        <!--<input id="myState" placeholder="What state you are from" class="input" type="text">-->
-        <select class="pure-input" id="myState">
-            <option value="AL">Alabama</option>
-            <option value="AK">Alaska</option>
-            <option value="AZ">Arizona</option>
-            <option value="AR">Arkansas</option>
-            <option value="CA">California</option>
-            <option value="CO">Colorado</option>
-            <option value="CT">Connecticut</option>
-            <option value="DE">Delaware</option>
-            <option value="FL">Florida</option>
-            <option value="GA">Georgia</option>
-            <option value="HI">Hawaii</option>
-            <option value="ID">Idaho</option>
-            <option value="IL">Illinois</option>
-            <option value="IN">Indiana</option>
-            <option value="IA">Iowa</option>
-            <option value="KS">Kansas</option>
-            <option value="KY">Kentucky</option>
-            <option value="LA">Louisiana</option>
-            <option value="ME">Maine</option>
-            <option value="MD">Maryland</option>
-            <option value="MA">Massachusetts</option>
-            <option value="MI">Michigan</option>
-            <option value="MN">Minnesota</option>
-            <option value="MS">Mississippi</option>
-            <option value="MO">Missouri</option>
-            <option value="MT">Montana</option>
-            <option value="NE">Nebraska</option>
-            <option value="NV">Nevada</option>
-            <option value="NH">New Hampshire</option>
-            <option value="NJ">New Jersey</option>
-            <option value="NM">New Mexico</option>
-            <option value="NY">New York</option>
-            <option value="NC">North Carolina</option>
-            <option value="ND">North Dakota</option>
-            <option value="OH">Ohio</option>
-            <option value="OK">Oklahoma</option>
-            <option value="OR">Oregon</option>
-            <option value="PA">Pennsylvania</option>
-            <option value="RI">Rhode Island</option>
-            <option value="SC">South Carolina</option>
-            <option value="SD">South Dakota</option>
-            <option value="TN">Tennessee</option>
-            <option value="TX">Texas</option>
-            <option value="UT">Utah</option>
-            <option value="VT">Vermont</option>
-            <option value="VA">Virginia</option>
-            <option value="WA">Washington</option>
-            <option value="WV">West Virginia</option>
-            <option value="WI">Wisconsin</option>
-            <option value="WY">Wyoming</option>
-        </select>
-        <input type="button" id="submitbutton" class="pure-button pure-button-primary" value="Submit" onclick="getStateToVoteIn()">
-    </form>
-    <div id="stateToVoteIn"></div>
-    <hr>
-    <span id="explanation">Our interactive map shows FiveThirtyEight's Voter Power Index for all 50 states. A vote in states that are colored in a darker shade of green are more likely to affect the outcome of the election. Hover over the map to see the Voter Power Index for each state.<br><br>According to FiveThiryEight: <i>Two measures help capture how important a state and its voters will be in determining the next president: <b>“Tipping-point chance”</b> is the probability that a state will provide the decisive vote in the Electoral College. <b>“Voter power index”</b> is the relative likelihood that an individual voter in a state will determine the Electoral College winner.</i></span>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="topojson.min.js"></script>
-    <script src="datamaps.usa.min.js"></script>
-    <div id="map_election" style="position: relative;"></div>
-    <div class="credit">
-        <h6>Interactive by Lucy Zhang | The Chronicle</h6>
+
+    <script src="https://js.arcgis.com/3.18/"></script>
+    <script>
+      var map, dialog;
+      require([
+        "esri/map", "esri/layers/FeatureLayer",
+        "esri/symbols/SimpleFillSymbol", "esri/symbols/SimpleLineSymbol",
+        "esri/renderers/SimpleRenderer", "esri/graphic", "esri/lang",
+        "esri/Color", "dojo/number", "dojo/dom-style",
+        "dijit/TooltipDialog", "dijit/popup", "dojo/domReady!"
+      ], function(
+        Map, FeatureLayer,
+        SimpleFillSymbol, SimpleLineSymbol,
+        SimpleRenderer, Graphic, esriLang,
+        Color, number, domStyle,
+        TooltipDialog, dijitPopup
+      ) {
+        map = new Map("mapDiv", {
+          basemap: "streets",
+          center: [-80.94, 33.646],
+          zoom: 8,
+          slider: false
+        });
+
+        var southCarolinaCounties = new FeatureLayer("https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/3", {
+          mode: FeatureLayer.MODE_SNAPSHOT,
+          outFields: ["NAME", "POP2000", "POP2007", "POP00_SQMI", "POP07_SQMI"]
+        });
+        southCarolinaCounties.setDefinitionExpression("STATE_NAME = 'South Carolina'");
+
+        var symbol = new SimpleFillSymbol(
+          SimpleFillSymbol.STYLE_SOLID,
+          new SimpleLineSymbol(
+            SimpleLineSymbol.STYLE_SOLID,
+            new Color([255,255,255,0.35]),
+            1
+          ),
+          new Color([125,125,125,0.35])
+        );
+        southCarolinaCounties.setRenderer(new SimpleRenderer(symbol));
+        map.addLayer(southCarolinaCounties);
+
+        map.infoWindow.resize(245,125);
+
+        dialog = new TooltipDialog({
+          id: "tooltipDialog",
+          style: "position: absolute; width: 250px; font: normal normal normal 10pt Helvetica;z-index:100"
+        });
+        dialog.startup();
+
+        var highlightSymbol = new SimpleFillSymbol(
+          SimpleFillSymbol.STYLE_SOLID,
+          new SimpleLineSymbol(
+            SimpleLineSymbol.STYLE_SOLID,
+            new Color([255,0,0]), 3
+          ),
+          new Color([125,125,125,0.35])
+        );
+
+        //close the dialog when the mouse leaves the highlight graphic
+        map.on("load", function(){
+          map.graphics.enableMouseEvents();
+          map.graphics.on("mouse-out", closeDialog);
+
+        });
+
+        //listen for when the onMouseOver event fires on the countiesGraphicsLayer
+        //when fired, create a new graphic with the geometry from the event.graphic and add it to the maps graphics layer
+        southCarolinaCounties.on("mouse-over", function(evt){
+          var t = "<b>${NAME}</b><hr><b>2000 Population: </b>${POP2000:NumberFormat}<br>"
+            + "<b>2000 Population per Sq. Mi.: </b>${POP00_SQMI:NumberFormat}<br>"
+            + "<b>2007 Population: </b>${POP2007:NumberFormat}<br>"
+            + "<b>2007 Population per Sq. Mi.: </b>${POP07_SQMI:NumberFormat}";
+
+          var content = esriLang.substitute(evt.graphic.attributes,t);
+          var highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
+          map.graphics.add(highlightGraphic);
+
+          dialog.setContent(content);
+
+          domStyle.set(dialog.domNode, "opacity", 0.85);
+          dijitPopup.open({
+            popup: dialog,
+            x: evt.pageX,
+            y: evt.pageY
+          });
+        });
+
+        function closeDialog() {
+          map.graphics.clear();
+          dijitPopup.close(dialog);
+        }
+
+      });
+    </script>
+  </head>
+  <body class="tundra">
+    <div id="mapDiv">
+      <div id="info">
+        Hover over a county in South Carolina to get more information.
+      </div>
     </div>
-    <script src="script.js"></script>
-</body>
+  </body>
+</html>
