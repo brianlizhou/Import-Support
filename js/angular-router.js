@@ -238,7 +238,8 @@
       }).success(function(data)
       {
         originalValue = data; // response data 
-        $scope.volunteer.quantity += $scope.volunteer.quantity + originalValue;   
+        $scope.volunteer.quantity += $scope.volunteer.quantity + originalValue;  
+        console.log($scope.volunteer.quantity); 
       });
 
 
