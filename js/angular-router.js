@@ -28,10 +28,21 @@
 				controller  : 'volunteerController'
 			})
 
+			.when('/donationGeneral', {
+				templateUrl : 'donateMoney.html',
+				controller  : 'donateMoneyController'
+			})
+
       // route for the donate to supplies page
       .when('/donateToSupplies', {
         templateUrl : 'donateToSupplies.html',
         controller  : 'donateToSuppliesController'
+      })
+
+      // route for the donate to supplies page
+      .when('/donatePayment', {
+        templateUrl : 'donationPayment.html',
+        controller  : 'paymentController'
       })
 
       // route for the donate supplies page
@@ -51,21 +62,27 @@
 				params : {disaster: $scope.crisis.disaster}
 			}).success(function(data)
 			{
-        disasterType = $scope.crisis.disaster;
-        console.log(diasterType);
+        console.log($scope.crisis.disaster);
 				totalNeeds = data; // response data 
 				console.log(totalNeeds);
-			}
-      .error(function(data){
-        console.log("Error: " + $scope.crisis.disaster);
-      });
+			});
 
 		}
 	});
 
 	importSupport.controller('donateController', function($scope){
 		$scope.localNeeds = totalNeeds;
-    $scope.localDisaster = disasterType;
+    	$scope.localDisaster = disasterType;
+		$scope.submitForm = function() {
+			$http({
+				method: 'GET', 
+				url: 'https://quiet-crag-82048.herokuapp.com/county_contributions',
+				params : {country: "egg"}
+			}).success(function(data)
+			{
+       			$scope.orgList = data;
+			});
+		}
 	});
 
 
@@ -158,18 +175,10 @@
           //infoTemplate: infoTemplate
         });
         var highlightGraphic;
-        var justClicked = false;
-        
-        map.on("click", function(evt){    
-          if(!justClicked){
-           
-          }
-          justClicked = !justClicked
-        })
         
         featureLayer.on("click", function(evt){       
           var t = "${County_Name}"
-          map.graphics.clear();
+          
           var content = new String(esriLang.substitute(evt.graphic.attributes,t));
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
@@ -185,7 +194,18 @@
           	arrayToString =countyList.join(", ");
           	$scope.arrayToString = arrayToString;
           }
+          var temp = "Counties selected: ";
+          var len = countyList.length;
+        	for(var i =0;i<len;i++){
+        		temp += countyList[i]+", ";
+        	}
+          document.getElementById("county").innerHTML = temp;
           console.log(arrayToString);
+        });
+
+        document.getElementById("clearButton").addEventListener('click', function (event) {
+          map.graphics.clear();
+          document.getElementById("county").innerHTML = "Counties selected: ";
         });
         
 
@@ -211,6 +231,22 @@
           data    : $scope.volunteer, //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
+      };
+    });
+
+	var donationAmt;
+     // create the controller and inject Angular's $scope
+  importSupport.controller('donateMoneyController', function($scope, $http) {
+      // calling our submit function.
+      $scope.submitForm = function() {
+        donationAmt = $scope.donation.amount;
+      };
+    });
+
+   importSupport.controller('paymentController', function($scope, $http) {
+      // calling our submit function.
+      $scope.submitForm = function() {
+        $scope.donation.amount = donationAmt;
       };
     });
 
