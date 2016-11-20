@@ -106,7 +106,7 @@
   <h1>New Organization</h1>
   <div id="map"></div>
   <form class="cf" ng-submit="submitForm()">
-    <div class="half left cf">
+    <div class="full left cf">
       <input type="text" id="input-name" placeholder="Organization Name" ng-model="org.organizationName">
     </div>
       <div class="checkboxes">
@@ -114,7 +114,7 @@
       Water <input type="checkbox"  class="resourceCheck" name="resource" ng-model="org.water"/>
       Clothing <input type="checkbox" class="resourceCheck" name="resource" ng-model="org.clothing"/>
     </div>
-    <div class="half right cf">
+    <div class="full right cf">
       <textarea name="address" type="text" id="input-address" placeholder="Address" ng-model="org.organizationAddress"></textarea>
     </div>  
     <input type="submit" value="Register" id="input-submit">
