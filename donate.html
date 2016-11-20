@@ -18,8 +18,7 @@
   <div>
             <div class="text-center">
                 <h1>Placeholder disaster</h1>
-
-
+                
                 <div class="container">
                     <p>Overall Food</p>
                     <div class="progress">
@@ -45,10 +44,36 @@
                             {{localNeeds.receivedClothing/localNeeds.neededClothing*100}}%
                         </div>
                     </div>
-                </div>
+
+            	</div>
             </div>
 
 
    </div>
     <div id="map"></div>
+
+    <!--assume we get orgList-->
+    <div class="container" ng-repeat="org in orgList">
+        <p>{{org.orgName}}</p><br>
+        <p>{{org.orgAddress}}</p>
+   		<br>
+            <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{org.receivedWater/org.distributedWater*100}}%">
+                            {{org.receivedWater}}/{{localNeeds.distributedWater}} Water sent/received
+                        </div>
+             </div>
+
+             <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{org.receivedFood/org.distributedFood*100}}%">
+                            {{org.receivedFood}}/{{localNeeds.distributedFood}} Food sent/received
+                        </div>
+             </div>
+
+             <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{org.receivedClothing/org.distributedClothing*100}}%">
+                            {{org.receivedClothing}}/{{localNeeds.distributedClothing}} Clothing sent/received
+                        </div>
+             </div>
+     </div>
+
   </body>
