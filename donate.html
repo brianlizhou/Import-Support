@@ -10,7 +10,7 @@
     </div>
 </div>
   
-  <body>
+  <body onload="load()">
 
    <a href="#"><img style="vertical-align:top;width:75px;height:auto;position:absolute; margin-left: 15px; margin-top:5px;" src="img/BackButton.svg"/></a>
 
@@ -158,8 +158,10 @@
 
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
-		  updateData();
+		      updateData();
 
+        var xmlhttp = $.get("https://quiet-crag-82048.herokuapp.com/county_contributions", {county:content});
+        console.log(xmlhttp);
         });
         
 
@@ -250,3 +252,11 @@
                </div>
               </div>
   </body>
+
+  <script>
+
+    function load(){
+
+    }
+
+  </script>
