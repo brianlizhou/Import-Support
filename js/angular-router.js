@@ -225,6 +225,20 @@
 	importSupport.controller('volunteerController', function($scope, $http) {
       // calling our submit function.
       $scope.submitForm = function() {
+      var originalValue;
+
+    $http({
+        method: 'GET', 
+        url: 'https://quiet-crag-82048.herokuapp.com/org_single_contribution',
+        params : {organization: $scope.volunteer.organizationName,county:$scope.volunteer.county,resource:$scope.volunteer.resourceType}
+      }).success(function(data)
+      {
+        originalValue = data; // response data 
+        $scope.volunteer.quantity += $scope.volunteer.quantity + originalValue;   
+      });
+
+
+
         $http({
           method  : 'POST',
           url     : 'https://quiet-crag-82048.herokuapp.com/verification',
