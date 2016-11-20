@@ -11,7 +11,7 @@
       #map{
         height: 50%;
         width:50%;
-        margin: 0;
+        margin: 0 auto;
         padding: 0;
       }
     </style>
@@ -31,8 +31,8 @@
       ) {
         map = new Map("map", {
           basemap: "streets",
-          center: [-98.215, 38.382],
-          zoom: 7,
+          center: [-83.54, 27.646],
+          zoom: 6,
           slider: false
         });
 
@@ -107,6 +107,20 @@
   </head>
   
   <body>
+  <div>
+            <div class="text-center">
+                <h1>Placeholder disaster</h1>
+                <div class="container">
+                    <h2>Animated Progress Bar</h2>
+                    <p>The .active class animates the progress bar:</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{totalNeeds.receivedFood/totalNeeds.neededFood*100}}%">
+                            {{totalNeeds.receivedFood/totalNeeds.neededFood*100}}%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <div id="map"></div>
   </body>
 
