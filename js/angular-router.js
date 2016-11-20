@@ -86,7 +86,7 @@
     		// $scope.localDisaster = "Hurricane Matthew";
     		console.log($scope.localDisaster);
 
-		updateData = function() {
+		function updateData() {
 
 
 
