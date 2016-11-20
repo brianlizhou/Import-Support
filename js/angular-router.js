@@ -51,7 +51,7 @@
 				params : {disaster: $scope.crisis.disaster}
 			}).success(function(data)
 			{
-        disasterType = $scope.crisis.disaster;
+        console.log(diasterType);
 				totalNeeds = data; // response data 
 				console.log(totalNeeds);
 			});
@@ -60,6 +60,7 @@
 
 	importSupport.controller('donateController', function($scope){
 		$scope.localNeeds = totalNeeds;
+    disasterType = $scope.crisis.disaster;
 	});
 
 
