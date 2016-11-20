@@ -1,4 +1,19 @@
-<div class="text-center">
+
+
+
+
+<script>
+function getTotalNeedsForDisaster($scope, $http)
+{
+$http({method: 'GET', url: 'js/test.json'}).success(function(data)
+{
+$scope.totalNeeds = data; // response data 
+});
+}
+</script>
+
+<div ng-controller="getTotalNeedsForDisaster">
+	<div class="text-center">
 	<h1>Placeholder disaster</h1>
 	<div class="container">
 		<h2>Animated Progress Bar</h2>
@@ -9,4 +24,6 @@
 			</div>
 		</div>
 	</div>
+	</div>
+
 </div>
