@@ -61,7 +61,8 @@
             var map;
             var countyList = [];
             $scope.arrayToString = function(string){
-        return string.join(", ");
+            	if(string){
+        return string.join(", ");}
     };
       require([
         "esri/map", "esri/layers/FeatureLayer",
