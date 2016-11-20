@@ -55,7 +55,11 @@
         console.log(diasterType);
 				totalNeeds = data; // response data 
 				console.log(totalNeeds);
-			});
+			}
+      .error(function(data){
+        console.log("Error: " + $scope.crisis.disaster);
+      });
+
 		}
 	});
 
