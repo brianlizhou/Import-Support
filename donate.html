@@ -17,7 +17,7 @@
 
   <div>
             <div class="text-center">
-                <h1>Placeholder disaster</h1>
+                <h1>{{localDisaster}}</h1>
                 
                 <div class="container">
                     <p>Overall Food</p>
@@ -178,6 +178,7 @@
             + "<b>Resources Needs Satisfied: </b>${Resources_Needs_Statisfied}<br>"
 
           var content = esriLang.substitute(evt.graphic.attributes,t);
+
           var highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
           dialog.setContent(content);
