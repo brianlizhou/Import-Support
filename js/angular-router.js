@@ -11,8 +11,8 @@
 			})
 
 			// route for the about page
-			.when('/about', {
-				templateUrl : 'about.html',
+			.when('/org', {
+				templateUrl : 'orgform.html',
 				controller  : 'aboutController'
 			})
 
