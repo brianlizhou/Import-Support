@@ -48,7 +48,7 @@
       $scope.submitForm = function() {
         $http({
           method  : 'POST',
-          url     : 'js/posts.json',
+          url     : 'https://quiet-crag-82048.herokuapp.com/verification',
           data    : $scope.user, //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
