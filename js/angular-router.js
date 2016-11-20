@@ -243,16 +243,18 @@
         var number = parseInt($scope.volunteer.quantity) + originalValue;  
         $scope.volunteer.quantity = parseInt(number);
               console.log($scope.volunteer);
-      });
 
-
-
-        $http({
+              $http({
           method  : 'POST',
           url     : 'https://quiet-crag-82048.herokuapp.com/verification',
           data    : $scope.volunteer, //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
+      });
+
+
+
+        
       };
     });
 
