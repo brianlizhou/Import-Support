@@ -71,7 +71,7 @@
 		}
 	});
 
-	importSupport.controller('donateController', function($scope){
+	importSupport.controller('donateController', function($scope,. $timeout){
 		$scope.localNeeds = totalNeeds;
     	$timeout(function() {
     		$scope.localDisaster = disasterType;
