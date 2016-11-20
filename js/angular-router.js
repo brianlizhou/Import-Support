@@ -27,18 +27,9 @@
 				controller  : 'donateController'
 			});
 	});
+	
 
-	// create the controller and inject Angular's $scope
-	importSupport.controller('mainController', function($scope) {
-		// create a message to display in our view
-		$scope.message = 'Everyone come and see how good I look!';
-	});
-
-	importSupport.controller('aboutController', function($scope) {
-		$scope.message = 'Look! I am an about page.';
-	});
-
-	importSupport.controller('donateController', function getTotalNeedsForDisaster($scope, $http)
+	importSupport.controller('donateController', function($scope, $http)
 {
 $http({method: 'GET', url: 'js/test.json'}).success(function(data)
 {
