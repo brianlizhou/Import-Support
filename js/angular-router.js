@@ -42,6 +42,7 @@
 	});
 	
 	var totalNeeds;
+  var disasterType;
 	importSupport.controller('mainController', function($scope, $http){
 		$scope.submitForm = function() {
 			$http({
@@ -50,13 +51,22 @@
 				params : {disaster: $scope.crisis.disaster}
 			}).success(function(data)
 			{
+        disasterType = $scope.crisis.disaster;
+        console.log(diasterType);
 				totalNeeds = data; // response data 
 				console.log(totalNeeds);
 			});
 		}
 	});
 
+<<<<<<< HEAD
 
+=======
+	importSupport.controller('donateController', function($scope){
+		$scope.localNeeds = totalNeeds;
+    $scope.localDisaster = disasterType;
+	});
+>>>>>>> 5ccbacdf99472095c74ae7272c85ecc13d32f4ab
 
 
 	var arrayToString;
