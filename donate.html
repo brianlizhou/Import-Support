@@ -52,12 +52,10 @@
 
    </div>
 
-   <div id= "map" ng-include = " 'donateFlorida.html' "></div>
-<!--     <div id="map" ng-switch on="localDisaster">
-=======
- <!--   </div>
+<!--    <div id= "map" ng-include = " 'donateFlorida.html' "></div> -->
+
     <div id="map" ng-switch on="$scope.localDisaster">
->>>>>>> bd4c3d00507c7e4fa45bd86d3d6f1e31b635a3a4
+
     	<div ng-switch-when=" 'Hurricane Matthew' "><div>
     		<ng-include src ="'donateFlorida.html'"></ng-include>
     	</div>
@@ -66,13 +64,13 @@
     	</div>
     	<div ng-switch-when=" 'Earthquake near Sacramento' ">
      		<ng-include src ="'donateCalifornia.html'"></ng-include>
-    	<div>
-    </div> -->
+    	</div>
+    </div>
 
    <!--  <div id="map"> </div>
-=======
+
     <div id="map"> </div>
->>>>>>> bd4c3d00507c7e4fa45bd86d3d6f1e31b635a3a4
+
 
       <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
