@@ -4,9 +4,9 @@
       <input type="text" id="input-name" placeholder="Organization Name" ng-model="org.organizationName">
     </div>
     <div class="half left cf" id="resources">
-      Food <input type="checkbox" class="resourceCheck" name="resource" value="Food" ng-model="org.food"/> 
-      Water <input type="checkbox"  class="resourceCheck" name="resource" value="Water"/>
-      Clothing <input type="checkbox" class="resourceCheck" name="resource" value="Clothing"/>
+      Food <input type="checkbox" class="resourceCheck" name="resource" ng-model="org.food"/> 
+      Water <input type="checkbox"  class="resourceCheck" name="resource" ng-model="org.water"/>
+      Clothing <input type="checkbox" class="resourceCheck" name="resource" ng-model="org.clothing"/>
     </div>
     <div class="half right cf">
       <textarea name="address" type="text" id="input-address" placeholder="Address" ng-model="org.organizationAddress"></textarea>

@@ -34,12 +34,11 @@
 		$scope.submitForm = function() {
 			$http({
 				method: 'GET', 
-				url: 'https://quiet-crag-82048.herokuapp.com/disaster_names',
-				//params : {disaster: $scope.crisis.disaster}
+				url: 'https://quiet-crag-82048.herokuapp.com/disaster',
+				params : {disaster: $scope.crisis.disaster}
 			}).success(function(data)
 			{
 				totalNeeds = data; // response data 
-				console.log(totalNeeds);
 			});
 		}
 	});
