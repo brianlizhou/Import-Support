@@ -79,17 +79,10 @@
       $scope.localDisaster = disasterType;
     }
 
-      setTimeout(function(){
-            initData();
-        }, 1000);
-
     		// $scope.localDisaster = "Hurricane Matthew";
     		console.log($scope.localDisaster);
 
-		$scope.updateData = function() {
-
-
-
+		$scope.updateData = function(){
 			$http({
 				method: 'GET', 
 				url: 'https://quiet-crag-82048.herokuapp.com/county_needs',
