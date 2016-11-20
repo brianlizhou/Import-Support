@@ -1,12 +1,4 @@
-    <script>
-function getTotalNeedsForDisaster($scope, $http)
-{
-$http({method: 'GET', url: 'js/test.json'}).success(function(data)
-{
-$scope.totalNeeds = data; // response data 
-});
-}
-</script>
+
 
 <div ng-controller="getTotalNeedsForDisaster">
     <div class="text-center">
