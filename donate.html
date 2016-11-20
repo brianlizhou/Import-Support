@@ -158,7 +158,7 @@
 
           highlightGraphic = new Graphic(evt.graphic.geometry,highlightSymbol);
           map.graphics.add(highlightGraphic);
-		      $scope.updateData();
+		  updateData();
 
         });
         
@@ -170,7 +170,8 @@
     </script>
   </head>
 
-  <input id="update" ng-change="updateData()"></input>
+<div ng-controller="donateController">
+  <input id="update" ng-change="updateData()"></input></div>
   <div id = "div">
   </div>
     	<button id = "myButton" onclick="updateData()"></button>
