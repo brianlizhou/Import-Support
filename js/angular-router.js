@@ -62,7 +62,8 @@
 				params : {disaster: $scope.crisis.disaster}
 			}).success(function(data)
 			{
-        console.log($scope.crisis.disaster);
+				disasterType = $scope.crisis.disaster;
+        console.log(disasterType);
 				totalNeeds = data; // response data 
 				console.log(totalNeeds);
 			});
@@ -73,6 +74,7 @@
 	importSupport.controller('donateController', function($scope){
 		$scope.localNeeds = totalNeeds;
     	$scope.localDisaster = disasterType;
+    	console.log($scope.localDisaster);
 		$scope.submitForm = function() {
 			$http({
 				method: 'GET', 
