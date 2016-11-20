@@ -1,15 +1,37 @@
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <style>
+      #map{
+        height: 50%;
+        width:50%;
+        margin: 0 auto;
+        padding: 0;
+      }
+    </style>
+    <script src="https://js.arcgis.com/3.18/"></script>
+    <script>
+
+    </script>
+  </head>  
+
+
+
   <h1>New Organization</h1>
+  <div id="map"></div>
+  <br>
+  Counties selected: {{hello}}
+
   <form class="cf" ng-submit="submitForm()">
-    <div class="half left cf">
+    <div class="full left cf">
       <input type="text" id="input-name" placeholder="Organization Name" ng-model="org.organizationName">
-      <div class="checkboxes">
-        Food <input type="checkbox" class="resourceCheck" name="resource" value="Food" ng-model="org.food"/> 
-        Water <input type="checkbox"  class="resourceCheck" name="resource" value="Water"/>
-        Clothing <input type="checkbox" class="resourceCheck" name="resource" value="Clothing"/>
-      </div>
-    </div>
-    <div class="half right cf">
       <textarea name="address" type="text" id="input-address" placeholder="Address" ng-model="org.organizationAddress"></textarea>
-    </div>  
+    </div>
+      <div class="checkboxes">
+      <input type="checkbox" class="resourceCheck" name="resource" ng-model="org.food"/> Food
+       <input type="checkbox"  class="resourceCheck" name="resource" ng-model="org.water"/> Water
+       <input type="checkbox" class="resourceCheck" name="resource" ng-model="org.clothing"/> Clothing
+    </div>
     <input type="submit" value="Register" id="input-submit">
   </form>
