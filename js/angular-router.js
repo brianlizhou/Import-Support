@@ -144,9 +144,9 @@
           	countyList.push($scope.content);
           }
           if(countyList){
-          	$scope.arrayToString =countyList.join(", ");
+          	arrayToString =countyList.join(", ");
           }
-          console.log($scope.arrayToString);
+          console.log(arrayToString);
 
         });
         
